@@ -1,0 +1,923 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/VarScan.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>VarScan - Variant Detection in Massively Parallel Sequencing Data - User's Manual</title>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33985908-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- InstanceEndEditable --><meta http-equiv="Content-Language" content="English" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+
+<div id="wrap">
+
+<div id="header">
+<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+<TR><TD WIDTH="100%">
+<h1><a href="index.html" TITLE="VarScan variant detection tool">VarScan</a></h1>
+<h2>variant detection in massively parallel sequencing data</h2></TD>
+<TD valign="bottom"><A HREF="https://varscan.sourceforge.net" TITLE="VarScan Variant Calling Software"><IMG SRC="images/VarScan-FancyLogo.jpg" ALT="VarScan variant detection software" BORDER=0></A></TD>
+</TR>
+</TABLE>
+</div>
+
+<div id="menu">
+<ul>
+<li><a href="index.html" title="VarScan snp and indel caller">Home</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/" TITLE="Variant Discovery Project">Project</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/files/" TITLE="Download Mutation Detection Software">Download</a></li>
+<li><a href="using-varscan.html" TITLE="Variant calling documentation">Manual</a></li>
+<li><a href="support-faq.html" TITLE="Variant detection FAQ">FAQ</a></li>
+<li><a href="doc/index.html" TITLE="VarScan documentation">Documentation</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/forums/forum/1073559" TITLE="VarScan Support">Support Forum</a></li>
+</ul>
+</div>
+
+<div id="content">
+
+<div class="left"> 
+
+<h2>VarScan</h2>
+<ul>
+<li><a href="https://sourceforge.net/apps/mediawiki/varscan" TITLE="VarScan software">About/Wiki</a></li> 
+<li><a href="https://sourceforge.net/projects/varscan/" TITLE="Mutation Discovery Project">Project Page</a></li> 
+<li><a href="using-varscan.html" TITLE="Variant calling documentation">User's Manual</a></li> 
+<li><a href="doc/index.html" TITLE="VarScan Javadoc">JavaDoc</a></li> 
+<li><a href="https://sourceforge.net/projects/varscan/files/" TITLE="Download variant caller software" STYLE="font-weight: bold; color:#00CC00">Download Now</a></li>
+<li><a href="support-faq.html" TITLE="Variant caller support FAQ">Support/FAQ</a></li>
+<li><a style="color: #FF0000" href="https://sourceforge.net/projects/varscan/forums/forum/1073559" TITLE="VarScan Support">Support Forum</a></li>
+</ul>
+
+<h2>Calling Methods</h2>
+<ul>
+<li><a href="germline-calling.html" TITLE="Germline variant calling methods">Germline Variants</a></li> 
+<li><a href="somatic-calling.html" TITLE="Somatic mutation calling methods">Somatic Mutations</a></li> 
+<li><a href="copy-number-calling.html" TITLE="Somatic copy number alteration calling methods">Copy Number Variants</a></li> 
+<li><a href="trio-calling-de-novo-mutations.html" TITLE="de novo mutations from trio calling"><I>de novo</I> Mutations (Trios)</a></li> 
+</ul>
+
+<h2>WashU Analysis Tools</h2>
+<ul>
+<li><a href="http://gmt.genome.wustl.edu" TITLE="Genome Modeling Tools">Genome Modeling Tools</a></li> 
+<li><a href="http://gmt.genome.wustl.edu/breakdancer/1.2/index.html" TITLE="Breakdancer">BreakDancer</a> (SVs)</li> 
+<li><a href="http://gmt.genome.wustl.edu/somatic-sniper/0.7.4/index.html" TITLE="Somatic Sniper">Somatic Sniper</a> (SNVs)</li> 
+<li><a href="http://cmds.sourceforge.net/" TITLE="CMDS">CMDS</a> (Copy Number)</li> 
+</ul>
+
+
+<h2>SAM/BAM Format</h2>
+<ul>
+<li><a href="http://samtools.sourceforge.net/SAM1.pdf" TITLE="SAM Format" TARGET="_blank">SAM Format Spec</a></li> 
+<li><a href="http://samtools.sourceforge.net/pileup.shtml" TITLE="SAMtools Pileup Format" TARGET="_blank">Pileup Format</a></li> 
+<li><a href="http://samtools.sourceforge.net" TITLE="SAMtools" TARGET="_blank">SAMtools</a></li> 
+<li><a href="http://picard.sourceforge.net/index.shtml" TITLE="Picard Tools" TARGET="_blank">Picard</a></li> 
+</ul>
+
+<h2>Short Read Aligners</h2>
+<ul>
+<li><a href="http://bowtie-bio.sourceforge.net" title="bowtie aligner" TARGET="_blank">Bowtie</a></li> 
+<li><a href="http://bio-bwa.sourceforge.net" title="bwa aligner" TARGET="_blank">BWA</a></li> 
+<li><a href="http://maq.sourceforge.net" title="maq aligner" TARGET="_blank">Maq</a></li> 
+<li><a href="http://www.novocraft.com" title="novocraft aligner" TARGET="_blank">Novoalign</a></li> 
+<li><a href="http://www.sanger.ac.uk/resources/software/ssaha2" title="ssaha aligner" TARGET="_blank">SSAHA2</a></li> 
+</ul>
+
+
+</div>
+
+
+<div class="right"> 
+<!-- InstanceBeginEditable name="MainBody" -->
+
+<h2>VarScan User's Manual</h2>
+
+VarScan is coded in Java, and should be executed from the command line 
+(Terminal, in Linux/UNIX/OSX, or Command Prompt in MS Windows). 
+For variant calling, you will need a pileup file. See the <A HREF="#pileup-howto">How to Build A Pileup File</A> section for details.
+Running 
+VarScan with no arguments prints the usage information. Because some fields changed as of VarScan v2.2.3, we are providing updated 
+documentations for the current release. For documentation of v2.2.2 and prior, see below.
+<BR><BR>
+
+<H3>VarScan Documentation (v2.2.3 and later)</H3>
+
+<pre class="sequenceText">	
+	USAGE: java -jar VarScan.jar  [COMMAND] [OPTIONS]
+	
+	COMMANDS:
+
+	<B>Single-sample Calling:</B>
+	<A HREF="#v2.3_pileup2snp"><B>pileup2snp</B></A> [pileup file]
+	<A HREF="#v2.3_pileup2indel"><B>pileup2indel</B></A> [pileup file]
+	<A HREF="#v2.3_pileup2cns"><B>pileup2cns</B></A> [pileup file]
+
+	<B>Multi-sample Calling:</B>
+	<A HREF="#v2.3_mpileup2snp"><B>mpileup2snp</B></A> [mpileup file]
+	<A HREF="#v2.3_mpileup2indel"><B>mpileup2indel</B></A> [mpileup file]
+	<A HREF="#v2.3_mpileup2cns"><B>mpileup2cns</B></A> [mpileup file]
+
+	<B>Tumor-normal Comparison:</B>
+	<A HREF="#v2.3_somatic"><B>somatic</B></A>	[normal pileup] [tumor pileup] or [normal-tumor mpileup]
+	<A HREF="#v2.3_copynumber"><B>copynumber</B></A> [normal pileup] [tumor pileup] or [normal-tumor mpileup]
+
+	<B>Variant Filtering:</B>
+	<A HREF="#v2.3_filter"><B>filter</B></A> [variants file]
+	<A HREF="#v2.3_somaticFilter"><B>somaticFilter</B></A> [mutations file]
+
+	<B>Utility Functions:</B>
+	<A HREF="#v2.3_limit"><B>limit</B></A> [variants file] 
+	<A HREF="#v2.3_readcounts"><B>readcounts</B></A> [pileup file]
+	<A HREF="#v2.3_compare"><B>compare</B></A>	[file1] [file2]
+</pre>
+
+<BR>
+
+<H3><A NAME="v2.3_pileup2snp"><font CLASS="likeH3"><B>pileup2snp</B></font></A></H3>
+
+This command calls SNPs from a <A HREF="#pileup-howto">pileup file</A> based on user-defined parameters:
+<pre class="sequenceTextSmall">
+	USAGE: java -jar VarScan.jar pileup2snp [pileup file] OPTIONS
+        pileup file - The SAMtools pileup file
+
+        OPTIONS:
+        --min-coverage  Minimum read depth at a position to make a call [8]
+        --min-reads2    Minimum supporting reads at a position to call variants [2]
+        --min-avg-qual  Minimum base quality at a position to count a read [15]
+        --min-var-freq  Minimum variant allele frequency threshold [0.01]
+        --p-value       Default p-value threshold for calling variants [99e-02]
+		
+	OUTPUT
+	Tab-delimited SNP calls with the following columns:
+	Chrom		chromosome name
+	Position	position (1-based)
+	Ref		reference allele at this position
+	Cons		Consensus genotype of sample in IUPAC format.
+	Reads1		reads supporting reference allele
+	Reads2		reads supporting variant allele
+	VarFreq		frequency of variant allele by read count
+	Strands1	strands on which reference allele was observed
+	Strands2	strands on which variant allele was observed
+	Qual1		average base quality of reference-supporting read bases
+	Qual2		average base quality of variant-supporting read bases
+	Pvalue		Significance of variant read count vs. expected baseline error
+	MapQual1	Average map quality of ref reads (only useful if in pileup)
+	MapQual2	Average map quality of var reads (only useful if in pileup)
+	Reads1Plus	Number of reference-supporting reads on + strand
+	Reads1Minus	Number of reference-supporting reads on - strand
+	Reads2Plus	Number of variant-supporting reads on + strand
+	Reads2Minus	Number of variant-supporting reads on - strand
+	VarAllele	Most frequent non-reference allele observed 
+</pre>
+
+<BR>
+<H3><A NAME="v2.3_pileup2indel"><font CLASS="likeH3"><B>pileup2indel</B></font></A></H3>
+
+This command calls indels from a <A HREF="#pileup-howto">pileup file</A> based on user-defined parameters:
+<pre class="sequenceTextSmall">
+	USAGE: java -jar VarScan.jar pileup2indel [pileup file] OPTIONS
+        pileup file - The SAMtools pileup file
+
+        OPTIONS:
+        --min-coverage  Minimum read depth at a position to make a call [8]
+        --min-reads2    Minimum supporting reads at a position to call variants [2]
+        --min-avg-qual  Minimum base quality at a position to count a read [15]
+        --min-var-freq  Minimum variant allele frequency threshold [0.01]
+        --p-value       Default p-value threshold for calling variants [99e-02]
+
+	OUTPUT
+	Tab-delimited indel calls with the following columns:
+	Chrom		chromosome name
+	Position	position (1-based)
+	Ref		reference allele at this position
+	Cons		Consensus genotype of sample; */(var) indicates heterozygous
+	Reads1		reads supporting reference allele
+	Reads2		reads supporting variant allele
+	VarFreq		frequency of variant allele by read count
+	Strands1	strands on which reference allele was observed
+	Strands2	strands on which variant allele was observed
+	Qual1		average base quality of reference-supporting read bases
+	Qual2		average base quality of variant-supporting read bases
+	Pvalue		Significance of variant read count vs. expected baseline error
+	MapQual1	Average map quality of ref reads (only useful if in pileup)
+	MapQual2	Average map quality of var reads (only useful if in pileup)
+	Reads1Plus	Number of reference-supporting reads on + strand
+	Reads1Minus	Number of reference-supporting reads on - strand
+	Reads2Plus	Number of variant-supporting reads on + strand
+	Reads2Minus	Number of variant-supporting reads on - strand
+	VarAllele	Most frequent non-reference allele observed 
+</pre>
+
+<BR>
+<H3><A NAME="v2.3_pileup2cns"><font CLASS="likeH3"><B>pileup2cns</B></font></A></H3>
+
+This command makes consensus calls (SNP/Indel/Reference) from a <A HREF="#pileup-howto">pileup file</A> based on user-defined parameters:
+<pre class="sequenceTextSmall">
+	USAGE: java -jar VarScan.jar pileup2cns [pileup file] OPTIONS
+        pileup file - The SAMtools pileup file
+
+        OPTIONS:
+        --min-coverage  Minimum read depth at a position to make a call [8]
+        --min-reads2    Minimum supporting reads at a position to call variants [2]
+        --min-avg-qual  Minimum base quality at a position to count a read [15]
+        --min-var-freq  Minimum variant allele frequency threshold [0.01]
+        --p-value       Default p-value threshold for calling variants [99e-02]
+
+	OUTPUT
+	Tab-delimited consensus calls with the following columns:
+	Chrom		chromosome name
+	Position	position (1-based)
+	Ref		reference allele at this position
+	Cons		Consensus genotype of sample; */(var) indicates heterozygous
+	Reads1		reads supporting reference allele
+	Reads2		reads supporting variant allele
+	VarFreq		frequency of variant allele by read count
+	Strands1	strands on which reference allele was observed
+	Strands2	strands on which variant allele was observed
+	Qual1		average base quality of reference-supporting read bases
+	Qual2		average base quality of variant-supporting read bases
+	Pvalue		Significance of variant read count vs. expected baseline error
+	MapQual1	Average map quality of ref reads (only useful if in pileup)
+	MapQual2	Average map quality of var reads (only useful if in pileup)
+	Reads1Plus	Number of reference-supporting reads on + strand
+	Reads1Minus	Number of reference-supporting reads on - strand
+	Reads2Plus	Number of variant-supporting reads on + strand
+	Reads2Minus	Number of variant-supporting reads on - strand
+	VarAllele	Most frequent non-reference allele observed 
+</pre>
+
+
+<H3><A NAME="v2.3_mpileup2snp"><font CLASS="likeH3"><B>mpileup2snp</B></font></A></H3>
+
+This command calls SNPs from an <A HREF="#mpileup-howto">mpileup file</A> based on user-defined parameters:
+<pre class="sequenceTextSmall">
+	USAGE: java -jar VarScan.jar mpileup2snp [mpileup file] OPTIONS
+        mpileup file - The SAMtools mpileup file
+
+	OPTIONS:
+	--min-coverage	Minimum read depth at a position to make a call [8]
+	--min-reads2	Minimum supporting reads at a position to call variants [2]
+	--min-avg-qual	Minimum base quality at a position to count a read [15]
+	--min-var-freq	Minimum variant allele frequency threshold [0.01]
+	--min-freq-for-hom	Minimum frequency to call homozygote [0.75]
+	--p-value	Default p-value threshold for calling variants [99e-02]
+	--strand-filter	Ignore variants with >90% support on one strand [1]
+	--output-vcf	If set to 1, outputs in VCF format
+	--variants	Report only variant (SNP/indel) positions (mpileup2cns only) [0]
+
+		
+	OUTPUT
+	Tab-delimited SNP calls with the following columns:
+	Chrom		chromosome name
+	Position	position (1-based)
+	Ref			reference allele at this position
+	Var			variant allele observed
+	PoolCall	Cross-sample call using all data (Cons:Cov:Reads1:Reads2:Freq:P-value)
+			Cons - consensus genotype in IUPAC format
+			Cov - total depth of coverage
+			Reads1 - number of reads supporting reference
+			Reads2 - number of reads supporting variant
+			Freq - the variant allele frequency by read count
+			P-value - FET p-value of observed reads vs expected non-variant
+	StrandFilt	Information to look for strand bias using all reads (R1+:R1-:R2+:R2-:pval)
+			R1+ = reference supporting reads on forward strand
+			R1- = reference supporting reads on reverse strand
+			R2+ = variant supporting reads on forward strand
+			R2- = variant supporting reads on reverse strand
+			pval = FET p-value for strand distribution, R1 versus R2
+	SamplesRef	Number of samples called reference (wildtype)
+	SamplesHet	Number of samples called heterozygous-variant
+	SamplesHom	Number of samples called homozygous-variant
+	SamplesNC	Number of samples not covered / not called
+	SampleCalls	The calls for each sample in the mpileup, space-delimited
+    			Each sample has six values separated by colons:
+			Cons - consensus genotype in IUPAC format
+			Cov - total depth of coverage
+			Reads1 - number of reads supporting reference
+			Reads2 - number of reads supporting variant
+			Freq - the variant allele frequency by read count
+			P-value - FET p-value of observed reads vs expected non-variant	
+</pre>
+
+<BR>
+<H3><A NAME="v2.3_mpileup2indel"><font CLASS="likeH3"><B>mpileup2indel</B></font></A></H3>
+
+This command calls indels from a <A HREF="#mpileup-howto">mpileup file</A> based on user-defined parameters:
+<pre class="sequenceTextSmall">
+	USAGE: java -jar VarScan.jar mpileup2indel [mpileup file] OPTIONS
+        mpileup file - The SAMtools mpileup file
+
+	OPTIONS:
+	--min-coverage	Minimum read depth at a position to make a call [8]
+	--min-reads2	Minimum supporting reads at a position to call variants [2]
+	--min-avg-qual	Minimum base quality at a position to count a read [15]
+	--min-var-freq	Minimum variant allele frequency threshold [0.01]
+	--min-freq-for-hom	Minimum frequency to call homozygote [0.75]
+	--p-value	Default p-value threshold for calling variants [99e-02]
+	--strand-filter	Ignore variants with >90% support on one strand [1]
+	--output-vcf	If set to 1, outputs in VCF format
+	--variants	Report only variant (SNP/indel) positions (mpileup2cns only) [0]
+
+		
+	OUTPUT
+	Tab-delimited SNP calls with the following columns:
+	Chrom		chromosome name
+	Position	position (1-based)
+	Ref			reference allele at this position
+	Var			variant allele observed
+	PoolCall	Cross-sample call using all data (Cons:Cov:Reads1:Reads2:Freq:P-value)
+				Cons - consensus genotype in IUPAC format
+				Cov - total depth of coverage
+				Reads1 - number of reads supporting reference
+				Reads2 - number of reads supporting variant
+				Freq - the variant allele frequency by read count
+				P-value - FET p-value of observed reads vs expected non-variant
+	StrandFilt	Information to look for strand bias using all reads, format R1+:R1-:R2+:R2-:pval
+				R1+ = reference supporting reads on forward strand
+				R1- = reference supporting reads on reverse strand
+				R2+ = variant supporting reads on forward strand
+				R2- = variant supporting reads on reverse strand
+				pval = FET p-value for strand distribution, R1 versus R2
+	SamplesRef	Number of samples called reference (wildtype)
+	SamplesHet	Number of samples called heterozygous-variant
+	SamplesHom	Number of samples called homozygous-variant
+	SamplesNC	Number of samples not covered / not called
+	SampleCalls	The calls for each sample in the mpileup, space-delimited
+    			Each sample has six values separated by colons:
+			Cons - consensus genotype in IUPAC format
+			Cov - total depth of coverage
+			Reads1 - number of reads supporting reference
+			Reads2 - number of reads supporting variant
+			Freq - the variant allele frequency by read count
+			P-value - FET p-value of observed reads vs expected non-variant	
+</pre>
+
+<BR>
+<H3><A NAME="v2.3_mpileup2cns"><font CLASS="likeH3"><B>mpileup2cns</B></font></A></H3>
+
+This command makes consensus calls (SNP/Indel/Reference) from a <A HREF="#mpileup-howto">mpileup file</A> based on user-defined parameters:
+<pre class="sequenceTextSmall">
+	USAGE: java -jar VarScan.jar mpileup2cns [mpileup file] OPTIONS
+        mpileup file - The SAMtools mpileup file
+
+	OPTIONS:
+	--min-coverage	Minimum read depth at a position to make a call [8]
+	--min-reads2	Minimum supporting reads at a position to call variants [2]
+	--min-avg-qual	Minimum base quality at a position to count a read [15]
+	--min-var-freq	Minimum variant allele frequency threshold [0.01]
+	--min-freq-for-hom	Minimum frequency to call homozygote [0.75]
+	--p-value	Default p-value threshold for calling variants [99e-02]
+	--strand-filter	Ignore variants with >90% support on one strand [1]
+	--output-vcf	If set to 1, outputs in VCF format
+	--variants	Report only variant (SNP/indel) positions (mpileup2cns only) [0]
+
+		
+	OUTPUT
+	Tab-delimited SNP calls with the following columns:
+	Chrom		chromosome name
+	Position	position (1-based)
+	Ref			reference allele at this position
+	Var			variant allele observed
+	PoolCall	Cross-sample call using all data (Cons:Cov:Reads1:Reads2:Freq:P-value)
+				Cons - consensus genotype in IUPAC format
+				Cov - total depth of coverage
+				Reads1 - number of reads supporting reference
+				Reads2 - number of reads supporting variant
+				Freq - the variant allele frequency by read count
+				P-value - FET p-value of observed reads vs expected non-variant
+	StrandFilt	Information to look for strand bias using all reads, format R1+:R1-:R2+:R2-:pval
+				R1+ = reference supporting reads on forward strand
+				R1- = reference supporting reads on reverse strand
+				R2+ = variant supporting reads on forward strand
+				R2- = variant supporting reads on reverse strand
+				pval = FET p-value for strand distribution, R1 versus R2
+	SamplesRef	Number of samples called reference (wildtype)
+	SamplesHet	Number of samples called heterozygous-variant
+	SamplesHom	Number of samples called homozygous-variant
+	SamplesNC	Number of samples not covered / not called
+	SampleCalls	The calls for each sample in the mpileup, space-delimited
+    			Each sample has six values separated by colons:
+			Cons - consensus genotype in IUPAC format
+			Cov - total depth of coverage
+			Reads1 - number of reads supporting reference
+			Reads2 - number of reads supporting variant
+			Freq - the variant allele frequency by read count
+			P-value - FET p-value of observed reads vs expected non-variant	
+</pre>
+
+<BR>
+<H3><A NAME="v2.3_somatic"><font CLASS="likeH3"><B>somatic</B></font></A></H3>
+
+This command calls variants and identifies their somatic status (Germline/LOH/Somatic) using
+<A HREF="#pileup-howto">pileup files</A> from a matched tumor-normal pair.
+<pre class="sequenceTextSmall">
+	USAGE: java -jar VarScan.jar somatic [normal_pileup] [tumor_pileup] [output] OPTIONS
+        normal_pileup - The SAMtools pileup file for Normal
+        tumor_pileup - The SAMtools pileup file for Tumor
+        output - Output base name for SNP and indel output
+</pre>
+You can also give it a single mpileup file with normal and tumor data.
+<pre class="sequenceTextSmall">	
+	USAGE: java -jar VarScan.jar somatic [normal-tumor.mpileup] [output] --mpileup 1 OPTIONS
+        normal-tumor.mpileup - The SAMtools mpileup file with normal and then tumor
+        output - Output base name for SNP and indel output
+</pre>
+Both formats of the command share these common options:
+<pre class="sequenceTextSmall">	        
+	OPTIONS:
+	--output-snp - Output file for SNP calls [default: output.snp]
+	--output-indel - Output file for indel calls [default: output.indel]
+	--min-coverage - Minimum coverage in normal and tumor to call variant [8]
+	--min-coverage-normal - Minimum coverage in normal to call somatic [8]
+	--min-coverage-tumor - Minimum coverage in tumor to call somatic [6]
+	--min-var-freq - Minimum variant frequency to call a heterozygote [0.10]
+	--min-freq-for-hom	Minimum frequency to call homozygote [0.75]
+	--normal-purity - Estimated purity (non-tumor content) of normal sample [1.00]
+	--tumor-purity - Estimated purity (tumor content) of tumor sample [1.00]
+	--p-value - P-value threshold to call a heterozygote [0.99]
+	--somatic-p-value - P-value threshold to call a somatic site [0.05]
+	--strand-filter - If set to 1, removes variants with >90% strand bias
+	--validation - If set to 1, outputs all compared positions even if non-variant
+</pre>
+Note that more specific options (e.g. min-coverage-normal) will override the default or specificied value of less specific options (e.g. min-coverage). 
+<BR /><BR />
+The <strong>normal and tumor purity</strong> values should be a value between 0 and 1. The default (1) implies that the normal is 100% pure with no contaminating tumor 
+cells, and the tumor is 100% pure with no contaminating stromal or other non-malignant cells. You would change tumor-purity to something less than 1 if you
+have a low-purity tumor sample and thus expect lower variant allele frequencies for mutations. You would change normal-purity to something less than 1 only
+if it's possible that there will be some tumor content in your "normal" sample, e.g. adjacent normal tissue for a solid tumor, malignant blood cells in the 
+skin punch normal for some liquid tumors, etc.
+<BR /><BR />
+There are <strong>two p-value options</strong>. One (p-value) is the significance threshold for the first-pass algorithm that determines, for each position, if either normal 
+or tumor is variant at that position. The second (somatic-p-value) is more important; this is the threshold below which read count differences between tumor and normal 
+are deemed significant enough to classify the sample as a somatic mutation or an LOH event. In the case of a shared (germline) variant, this p-value is used to
+determine if the combined normal and tumor evidence differ significantly enough from the null hypothesis (no variant with same coverage) to report the variant. See the <A HREF="http://varscan.sourceforge.net/somatic-calling.html" TITLE="Exome-based somatic mutation detection"><strong>somatic mutation calling</strong></A> section for details.
+<pre class="sequenceTextSmall">	 
+	OUTPUT
+	Two tab-delimited files (SNPs and Indels) with the following columns:
+	chrom					chromosome name
+	position				position (1-based from the pileup)
+	ref						reference allele at this position
+	var						variant allele at this position
+	normal_reads1			reads supporting reference allele
+	normal_reads2			reads supporting variant allele
+	normal_var_freq			frequency of variant allele by read count
+	normal_gt				genotype call for Normal sample
+	tumor_reads1			reads supporting reference allele
+	tumor_reads2			reads supporting variant allele
+	tumor_var_freq			frequency of variant allele by read count
+	tumor_gt				genotype call for Tumor sample
+	somatic_status			status of variant (Germline, Somatic, or LOH)	
+	variant_p_value			Significance of variant read count vs. baseline error rate
+	somatic_p_value			Significance of tumor read count vs. normal read count
+	tumor_reads1_plus       Ref-supporting reads from + strand in tumor
+	tumor_reads1_minus      Ref-supporting reads from - strand in tumor
+	tumor_reads2_plus       Var-supporting reads from + strand in tumor
+	tumor_reads2_minus		Var-supporting reads from - strand in tumor
+</pre>
+
+
+<BR>
+<H3><A NAME="v2.3_copynumber"><font CLASS="likeH3"><B>copynumber</B></font></A></H3>
+
+This command calls variants and identifies their somatic status (Germline/LOH/Somatic) using
+<A HREF="#pileup-howto">pileup files</A> from a matched tumor-normal pair.
+<pre class="sequenceTextSmall">
+	USAGE: java -jar VarScan.jar copynumber [normal_pileup] [tumor_pileup] [output] OPTIONS
+        normal_pileup - The SAMtools pileup file for Normal
+        tumor_pileup - The SAMtools pileup file for Tumor
+        output - Output base name for SNP and indel output
+</pre>
+You can also give it a single mpileup file with normal and tumor data.
+<pre class="sequenceTextSmall">	
+	USAGE: java -jar VarScan.jar copynumber [normal-tumor.mpileup] [output] --mpileup 1 OPTIONS
+        normal-tumor.mpileup - The SAMtools mpileup file with normal and then tumor
+        output - Output base name for SNP and indel output
+</pre>
+Both formats of the command share these common options:
+<pre class="sequenceTextSmall">	        
+	OPTIONS:
+	--min-base-qual - Minimum base quality to count for coverage [20]
+	--min-map-qual - Minimum read mapping quality to count for coverage [20]
+	--min-coverage - Minimum coverage threshold for copynumber segments [20]
+	--min-segment-size - Minimum number of consecutive bases to report a segment [10]
+	--max-segment-size - Max size before a new segment is made [100]
+	--p-value - P-value threshold for significant copynumber change-point [0.01]
+	--data-ratio - The normal/tumor input data ratio for copynumber adjustment [1.0]
+</pre>
+Note: The data ratio is intended to help you account for overall differences in the amount of sequencing coverage
+between normal and tumor, which might otherwise give the appearance of global copy number differences. If normal 
+has more data than tumor, set this to something greater than 1. If tumor has more data than normal, adjust it to 
+something below 1. A basic formula for data ratio might be something like <I>ratio = normal_unique_bp / tumor_unique_bp</I>
+where unique base pairs are computed as <I>mapped_non_dup_reads * read_length</I>.
+<pre class="sequenceTextSmall">	 
+	OUTPUT
+	chrom				Chromosome name
+	chr_start			Region start position (1-based from the pileup)
+	chr_stop			Region stop position (1-based from the pileup)
+    num_positions		Size of the region in base pairs
+    normal_depth		Average normal sequence depth for the region
+    tumor_depth			Average tumor sequence depth for the region
+    log2_ratio			Log-base-2 ratio of: adjusted tumor depth over normal depth
+    gc_content			Estimated GC content of the region (0-100)
+</pre>
+
+The raw regions reported by VarScan are delineated by drops in coverage or changes in the tumor/normal ratio, so there are many small, nearby regions with similar copy number.
+It is therefore recommended that raw VarScan copynumber output be processed with circular binary segmentation (CBS) or a similar algorithm, which will generate larger segments
+delineated by statistically significant change points. See the <A HREF="http://varscan.sourceforge.net/copy-number-calling.html" TITLE="Exome-based copy number calling"><strong>copy number calling</strong></A> section for details.
+
+
+<BR>
+<H3><A NAME="v2.3_filter"><font CLASS="likeH3"><B>filter</B></font></A></H3>
+
+This command filters variants in a file by coverage, supporting reads, variant frequency, or average base quality. It is for use with output from pileup2snp or pileup2indel.
+<pre class="sequenceTextSmall">
+	USAGE: java -jar VarScan.jar filter [variants file] OPTIONS
+        variants file - A file of SNP or indel calls from VarScan pileup2snp or pileup2indel
+
+	OPTIONS:
+	--min-coverage	Minimum read depth at a position to make a call [10]
+	--min-reads2	Minimum supporting reads at a position to call variants [2]
+	--min-strands2	Minimum # of strands on which variant observed (1 or 2) [1]
+	--min-avg-qual	Minimum average base quality for variant-supporting reads [20]
+	--min-var-freq	Minimum variant allele frequency threshold [0.20]
+	--p-value	Default p-value threshold for calling variants [1e-01]
+	--indel-file	File of indels for filtering nearby SNPs, from pileup2indel command
+	--output-file	File to contain variants passing filters
+
+</pre>
+
+<BR>
+<H3><A NAME="v2.3_somaticFilter"><font CLASS="likeH3"><B>somaticFilter</B></font></A></H3>
+
+This command filters somatic mutation calls to remove clusters of false positives and SNV calls near indels. 
+Note: this is a basic filter. More advanced filtering strategies consider mapping quality, read mismatches, soft-trimming, and other factors when deciding
+whether or not to filter a variant. See the <A HREF="http://www.ncbi.nlm.nih.gov/pubmed/19542151" TITLE="VarScan 2 paper">VarScan 2 publication</A> (Koboldt et al, Genome Research, Feb 2012) for details.
+<pre class="sequenceTextSmall">
+	USAGE: java -jar VarScan.jar somaticFilter [mutations file] OPTIONS
+        mutations file - A file of SNVs from VarScan somatic
+
+        OPTIONS:
+        --min-coverage  Minimum read depth [10]
+        --min-reads2    Minimum supporting reads for a variant [2]
+        --min-strands2  Minimum # of strands on which variant observed (1 or 2) [1]
+        --min-avg-qual  Minimum average base quality for variant-supporting reads [20]
+        --min-var-freq  Minimum variant allele frequency threshold [0.20]
+        --p-value       Default p-value threshold for calling variants [1e-01]
+        --indel-file    File of indels for filtering nearby SNPs
+        --output-file   Optional output file for filtered variants
+</pre>
+
+
+<BR>
+<H3><A NAME="v2.3_limit"><font CLASS="likeH3"><B>limit</B></font></A></H3>
+
+This command limits variants in a file to a set of positions or regions
+<pre class="sequenceTextSmall">
+USAGE: java -jar VarScan.jar limit [infile] OPTIONS
+        infile - A file of chromosome-positions, tab-delimited
+		
+        OPTIONS
+        --positions-file - a file of chromosome-positions, tab delimited
+        --regions-file - a file of chromosome-start-stops, tab delimited
+        --output-file - Output file for the matching variants
+</pre>
+
+
+<BR>
+<H3><A NAME="v2.3_readcounts"><font CLASS="likeH3"><B>readcounts</B></font></A></H3>
+
+This command reports the read counts for each base at positions in a pileup file
+<pre class="sequenceTextSmall">
+USAGE: java -jar VarScan.jar readcounts [pileup file] OPTIONS
+	pileup file - The SAMtools pileup file
+	
+        OPTIONS:
+        --variants-file A list of variants at which to report readcounts
+        --output-file   Output file to contain the readcounts
+        --min-coverage  Minimum read depth at a position to make a call [8]
+        --min-base-qual Minimum base quality at a position to count a read [30]
+</pre>
+
+
+<BR>
+<H3><A NAME="v2.3_compare"><font CLASS="likeH3"><B>compare </B></font></A></H3>
+
+This command performs set-comparison operations on two files of variants.
+<pre class="sequenceTextSmall">
+USAGE: java -jar VarScan.jar compare [file1] [file2] [type] [output] OPTIONS
+        file1 - A file of chromosome-positions, tab-delimited
+        file2 - A file of chromosome-positions, tab-delimited
+        type - Type of comparison [intersect|merge|unique1|unique2]
+        output - Output file for the comparison result
+</pre>
+
+<BR><BR>
+
+For detailed usage information, see the <A HREF="doc/index.html" TITLE="VarScan Documentation">VarScan JavaDoc</A>.
+
+<BR><BR>
+
+
+<BR><BR>
+
+
+<H3>VarScan Documentation (v2.2.2 and before)</H3>
+
+<pre class="sequenceText">	
+	USAGE: java -jar VarScan.jar  [COMMAND] [OPTIONS]
+	
+	COMMANDS
+	<A HREF="#v2.2_pileup2snp"><B>pileup2snp</B></A> [pileup file]
+	<A HREF="#v2.2_pileup2indel"><B>pileup2indel</B></A> [pileup file]
+	<A HREF="#v2.2_pileup2cns"><B>pileup2cns</B></A> [pileup file]
+	<A HREF="#v2.2_somatic"><B>somatic</B></A>	[normal pileup] [tumor pileup]
+	<A HREF="#v2.2_filter"><B>filter</B></A> [variants file]
+	<A HREF="#v2.2_somaticFilter"><B>somaticFilter</B></A> [mutations file]
+	<A HREF="#v2.2_limit"><B>limit</B></A> [variants file] 
+	<A HREF="#v2.2_readcounts"><B>readcounts</B></A> [pileup file]
+	<A HREF="#v2.2_compare"><B>compare</B></A>	[file1] [file2]
+
+</pre>
+
+<BR>
+
+
+<H3><A NAME="v2.2_pileup2snp"><font CLASS="likeH3"><B>pileup2snp</B></font></A></H3>
+
+This command calls SNPs from a <A HREF="#pileup-howto">pileup file</A> based on user-defined parameters:
+<pre class="sequenceTextSmall">
+	USAGE: java -jar VarScan.jar pileup2snp [pileup file] OPTIONS
+        pileup file - The SAMtools pileup file
+
+        OPTIONS:
+        --min-coverage  Minimum read depth at a position to make a call [10]
+        --min-reads2    Minimum supporting reads at a position to call variants [2]
+        --min-avg-qual  Minimum base quality at a position to count a read [15]
+        --min-var-freq  Minimum variant allele frequency threshold [0.01]
+        --p-value       Default p-value threshold for calling variants [99e-02]
+		
+	OUTPUT
+	Tab-delimited SNP calls with the following columns:
+	Chrom		chromosome name
+	Position	position (1-based)
+	Ref		reference allele at this position
+	Var		variant allele at this position
+	Reads1		reads supporting reference allele
+	Reads2		reads supporting variant allele
+	VarFreq		frequency of variant allele by read count
+	Strands1	strands on which reference allele was observed
+	Strands2	strands on which variant allele was observed
+	Qual1		average base quality of reference-supporting read bases
+	Qual2		average base quality of variant-supporting read bases
+	Pvalue		Significance of variant read count vs. expected baseline error
+</pre>
+
+<BR>
+<H3><A NAME="v2.2_pileup2indel"><font CLASS="likeH3"><B>pileup2indel</B></font></A></H3>
+
+This command calls indels from a <A HREF="#pileup-howto">pileup file</A> based on user-defined parameters:
+<pre class="sequenceTextSmall">
+	USAGE: java -jar VarScan.jar pileup2indel [pileup file] OPTIONS
+        pileup file - The SAMtools pileup file
+
+        OPTIONS:
+        --min-coverage  Minimum read depth at a position to make a call [8]
+        --min-reads2    Minimum supporting reads at a position to call variants [2]
+        --min-avg-qual  Minimum base quality at a position to count a read [15]
+        --min-var-freq  Minimum variant allele frequency threshold [0.01]
+        --p-value       Default p-value threshold for calling variants [99e-02]
+
+	OUTPUT
+	Tab-delimited indel calls with the following columns:
+	Chrom		chromosome name
+	Position	position (1-based)
+	Ref		reference allele at this position
+	Var		variant allele at this position
+	Reads1		reads supporting reference allele
+	Reads2		reads supporting variant allele
+	VarFreq		frequency of variant allele by read count
+	Strands1	strands on which reference allele was observed
+	Strands2	strands on which variant allele was observed
+	Qual1		average base quality of reference-supporting read bases
+	Qual2		average base quality of variant-supporting read bases
+	Pvalue		Significance of variant read count vs. expected baseline error
+</pre>
+
+<BR>
+<H3><A NAME="v2.2_pileup2cns"><font CLASS="likeH3"><B>pileup2cns</B></font></A></H3>
+
+This command makes consensus calls (SNP/Indel/Reference) from a <A HREF="#pileup-howto">pileup file</A> based on user-defined parameters:
+<pre class="sequenceTextSmall">
+	USAGE: java -jar VarScan.jar pileup2cns [pileup file] OPTIONS
+        pileup file - The SAMtools pileup file
+
+        OPTIONS:
+        --min-coverage  Minimum read depth at a position to make a call [8]
+        --min-reads2    Minimum supporting reads at a position to call variants [2]
+        --min-avg-qual  Minimum base quality at a position to count a read [15]
+        --min-var-freq  Minimum variant allele frequency threshold [0.01]
+        --p-value       Default p-value threshold for calling variants [99e-02]
+
+	OUTPUT
+	Tab-delimited consensus calls with the following columns:
+	Chrom		chromosome name
+	Position	position (1-based)
+	Ref		reference allele at this position
+	Var		consensus call (reference, IUPAC SNP code, or indel)
+	Reads1		reads supporting reference allele
+	Reads2		reads supporting variant allele
+	VarFreq		frequency of variant allele by read count
+	Strands1	strands on which reference allele was observed
+	Strands2	strands on which variant allele was observed
+	Qual1		average base quality of reference-supporting read bases
+	Qual2		average base quality of variant-supporting read bases
+	Pvalue		Significance of variant read count vs. expected baseline error
+</pre>
+
+<BR>
+<H3><A NAME="v2.2_somatic"><font CLASS="likeH3"><B>somatic</B></font></A></H3>
+
+This command calls variants and identifies their somatic status (Germline/LOH/Somatic) using
+<A HREF="#pileup-howto">pileup files</A> from a matched tumor-normal pair.
+<pre class="sequenceTextSmall">
+	USAGE: java -jar VarScan.jar somatic [normal_pileup] [tumor_pileup] [output] OPTIONS
+        normal_pileup - The SAMtools pileup file for Normal
+        tumor_pileup - The SAMtools pileup file for Tumor
+        output - Output base name for SNP and indel output
+		
+	OPTIONS:
+	--output-snp	Output file for SNP calls [output.snp]
+	--output-indel	Output file for indel calls [output.indel]
+	--min-coverage	Minimum coverage in normal and tumor to call variant [10]
+	--min-coverage-normal	Minimum coverage in normal to call somatic [10]
+	--min-coverage-tumor	Minimum coverage in tumor to call somatic [5]
+	--min_var_freq	Minimum variant frequency to call a heterozygote [0.20]
+	--p-value	P-value threshold to call a heterozygote [1.0e-01]
+	--somatic-p-value	P-value threshold to call a somatic site [1.0e-04]
+
+	OUTPUT
+	Two tab-delimited files (SNPs and Indels) with the following columns:
+	Chrom		chromosome name
+	Position	position (1-based)
+	Ref		reference allele at this position
+	Var		variant allele at this position
+	Normal_Reads1	reads supporting reference allele
+	Normal_Reads2	reads supporting variant allele
+	Normal_VarFreq	frequency of variant allele by read count
+	Normal_Gt	genotype call for Normal sample
+	Tumor_Reads1	reads supporting reference allele
+	Tumor_Reads2	reads supporting variant allele
+	Tumor_VarFreq	frequency of variant allele by read count
+	Tumor_Gt	genotype call for Tumor sample
+	Somatic_Status	status of variant (Germline, Somatic, or LOH)	
+	Pvalue		Significance of variant read count vs. expected baseline error
+	Somatic_Pvalue	Significance of tumor read count vs. normal read count
+</pre>
+
+<BR>
+<H3><A NAME="v2.2_filter"><font CLASS="likeH3"><B>filter</B></font></A></H3>
+
+This command filters variants in a file by coverage, supporting reads, variant frequency, or average base quality
+<pre class="sequenceTextSmall">
+	USAGE: java -jar VarScan.jar filter [variants file] OPTIONS
+        variants file - A file of SNP or indel calls from VarScan
+
+        OPTIONS:
+        --min-coverage  Minimum read depth at a position to make a call [8]
+        --min-reads2    Minimum supporting reads at a position to call variants [2]
+        --min-avg-qual  Minimum base quality at a position to count a read [15]
+        --min-var-freq  Minimum variant allele frequency threshold [0.01]
+        --p-value       Default p-value threshold for calling variants [99e-02]
+</pre>
+
+<BR>
+<H3><A NAME="v2.2_somaticFilter"><font CLASS="likeH3"><B>somaticFilter</B></font></A></H3>
+
+This command filters somatic mutation calls to remove clusters of false positives and SNV calls near indels.
+<pre class="sequenceTextSmall">
+	USAGE: java -jar VarScan.jar somaticFilter [mutations file] OPTIONS
+        mutations file - A file of SNVs from VarScan somatic
+
+        OPTIONS:
+        --min-coverage  Minimum read depth [10]
+        --min-reads2    Minimum supporting reads for a variant [2]
+        --min-strands2  Minimum # of strands on which variant observed (1 or 2) [1]
+        --min-avg-qual  Minimum average base quality for variant-supporting reads [20]
+        --min-var-freq  Minimum variant allele frequency threshold [0.20]
+        --p-value       Default p-value threshold for calling variants [1e-01]
+        --indel-file    File of indels for filtering nearby SNPs
+        --output-file   Optional output file for filtered variants
+</pre>
+
+
+<BR>
+<H3><A NAME="v2.2_limit"><font CLASS="likeH3"><B>limit</B></font></A></H3>
+
+This command limits variants in a file to a set of positions or regions
+<pre class="sequenceTextSmall">
+USAGE: java -jar VarScan.jar limit [infile] OPTIONS
+        infile - A file of chromosome-positions, tab-delimited
+		
+        OPTIONS
+        --positions-file - a file of chromosome-positions, tab delimited
+        --regions-file - a file of chromosome-start-stops, tab delimited
+        --output-file - Output file for the matching variants
+</pre>
+
+
+<BR>
+<H3><A NAME="v2.2_readcounts"><font CLASS="likeH3"><B>readcounts</B></font></A></H3>
+
+This command reports the read counts for each base at positions in a pileup file
+<pre class="sequenceTextSmall">
+USAGE: java -jar VarScan.jar readcounts [pileup file] OPTIONS
+	pileup file - The SAMtools pileup file
+	
+        OPTIONS:
+        --variants-file A list of variants at which to report readcounts
+        --output-file   Output file to contain the readcounts
+        --min-coverage  Minimum read depth at a position to make a call [8]
+        --min-base-qual Minimum base quality at a position to count a read [30]
+</pre>
+
+
+<BR>
+<H3><A NAME="v2.2_compare"><font CLASS="likeH3"><B>compare</B></font></A></H3>
+
+This command performs set-comparison operations on two files of variants.
+<pre class="sequenceTextSmall">
+USAGE: java -jar VarScan.jar compare [file1] [file2] [type] [output] OPTIONS
+        file1 - A file of chromosome-positions, tab-delimited
+        file2 - A file of chromosome-positions, tab-delimited
+        type - Type of comparison [intersect|merge|unique1|unique2]
+        output - Output file for the comparison result
+</pre>
+
+<BR><BR>
+
+For detailed usage information, see the <A HREF="doc/index.html" TITLE="VarScan Documentation">VarScan JavaDoc</A>.
+
+<BR><BR>
+
+
+
+
+<H3><A NAME="pileup-howto"></A><A NAME="mpileup-howto"><font CLASS="likeH3"><B><U>How to Build a SAMtools (m)pileup File</U></B></font></A></H3>
+<BR>
+The variant calling features of VarScan for single samples (pileup2snp, pileup2indel, pileup2cns) and multiple samples 
+(mpileup2snp, mpileup2indel, mpileup2cns, and somatic) expect input in 
+SAMtools <A HREF="http://samtools.sourceforge.net/mpileup.shtml" target="_blank">pileup</A> or <A HREF="http://samtools.sourceforge.net/mpileup.shtml" target="_blank">mpileup</A> format. <span style="color: #FF0000"><strong>In current versions of SAMtools, the "pileup" command has now been replaced with the "mpileup" command</strong></span>. For a single sample, these operate in a very similar fashion, except that mpileup applies BAQ adjustments by default, and the output is identical. When you give it 
+multiple BAM files, however, SAMtools mpileup generates a multi-sample pileup format that must be processed with the mpileup2* commands in VarScan. 
+To build a mpileup file, you will need:
+<UL>
+<LI>One or more <strong>BAM</strong> files ("myData.bam") that have been sorted using the <I>sort</I> command of SAMtools.</LI>
+<LI>The <strong>reference sequence</strong> ("reference.fasta") to which reads were aligned, in FASTA format.</LI>
+<LI>The <A HREF="http://samtools.sourceforge.net" TARGET="_blank"><strong>SAMtools</strong></A> software package.</LI>
+</UL>
+<BR>
+Generate a mpileup file with the following command:
+<pre class="sequenceTextSmall">
+
+samtools mpileup -f [reference sequence] [BAM file(s)] >myData.mpileup
+</pre>
+<BR>Note, to save disk space and file I/O, you can redirect mpileup output directly 
+to VarScan with a "pipe" command. For example:
+<BR>
+<pre class="sequenceTextSmall">
+One sample:
+samtools mpileup -f reference.fasta myData.bam | java -jar VarScan.v2.2.jar pileup2snp
+
+Multiple samples:
+samtools mpileup -f reference.fasta sample1.bam sample2.bam | java -jar VarScan.v2.2.jar pileup2snp
+</pre>
+
+
+
+<!-- InstanceEndEditable -->
+</div>
+
+<div style="clear: both;"> </div>
+
+</div>
+
+<div id="footer">
+Copyright © 2009-2013 by <A HREF="http://www.wustl.edu" TITLE="About Dan Koboldt" TARGET="_blank">Washington University in St. Louis</A>. Design by <a href="http://www.free-css-templates.com/" TARGET="_blank">CSS Templates</a>
+</div>
+
+</div>
+
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/VarScan.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>VarScan - Variant Detection in Massively Parallel Sequencing Data - Calling Copy Number Variants from Exome Data</title>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33985908-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- InstanceEndEditable --><meta http-equiv="Content-Language" content="English" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+
+<div id="wrap">
+
+<div id="header">
+<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+<TR><TD WIDTH="100%">
+<h1><a href="index.html" TITLE="VarScan variant detection tool">VarScan</a></h1>
+<h2>variant detection in massively parallel sequencing data</h2></TD>
+<TD valign="bottom"><A HREF="https://varscan.sourceforge.net" TITLE="VarScan Variant Calling Software"><IMG SRC="images/VarScan-FancyLogo.jpg" ALT="VarScan variant detection software" BORDER=0></A></TD>
+</TR>
+</TABLE>
+</div>
+
+<div id="menu">
+<ul>
+<li><a href="index.html" title="VarScan snp and indel caller">Home</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/" TITLE="Variant Discovery Project">Project</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/files/" TITLE="Download Mutation Detection Software">Download</a></li>
+<li><a href="using-varscan.html" TITLE="Variant calling documentation">Manual</a></li>
+<li><a href="support-faq.html" TITLE="Variant detection FAQ">FAQ</a></li>
+<li><a href="doc/index.html" TITLE="VarScan documentation">Documentation</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/forums/forum/1073559" TITLE="VarScan Support">Support Forum</a></li>
+</ul>
+</div>
+
+<div id="content">
+
+<div class="left"> 
+
+<h2>VarScan</h2>
+<ul>
+<li><a href="https://sourceforge.net/apps/mediawiki/varscan" TITLE="VarScan software">About/Wiki</a></li> 
+<li><a href="https://sourceforge.net/projects/varscan/" TITLE="Mutation Discovery Project">Project Page</a></li> 
+<li><a href="using-varscan.html" TITLE="Variant calling documentation">User's Manual</a></li> 
+<li><a href="doc/index.html" TITLE="VarScan Javadoc">JavaDoc</a></li> 
+<li><a href="https://sourceforge.net/projects/varscan/files/" TITLE="Download variant caller software" STYLE="font-weight: bold; color:#00CC00">Download Now</a></li>
+<li><a href="support-faq.html" TITLE="Variant caller support FAQ">Support/FAQ</a></li>
+<li><a style="color: #FF0000" href="https://sourceforge.net/projects/varscan/forums/forum/1073559" TITLE="VarScan Support">Support Forum</a></li>
+</ul>
+
+<h2>Calling Methods</h2>
+<ul>
+<li><a href="germline-calling.html" TITLE="Germline variant calling methods">Germline Variants</a></li> 
+<li><a href="somatic-calling.html" TITLE="Somatic mutation calling methods">Somatic Mutations</a></li> 
+<li><a href="copy-number-calling.html" TITLE="Somatic copy number alteration calling methods">Copy Number Variants</a></li> 
+<li><a href="trio-calling-de-novo-mutations.html" TITLE="de novo mutations from trio calling"><I>de novo</I> Mutations (Trios)</a></li> 
+</ul>
+
+<h2>WashU Analysis Tools</h2>
+<ul>
+<li><a href="http://gmt.genome.wustl.edu" TITLE="Genome Modeling Tools">Genome Modeling Tools</a></li> 
+<li><a href="http://gmt.genome.wustl.edu/breakdancer/1.2/index.html" TITLE="Breakdancer">BreakDancer</a> (SVs)</li> 
+<li><a href="http://gmt.genome.wustl.edu/somatic-sniper/0.7.4/index.html" TITLE="Somatic Sniper">Somatic Sniper</a> (SNVs)</li> 
+<li><a href="http://cmds.sourceforge.net/" TITLE="CMDS">CMDS</a> (Copy Number)</li> 
+</ul>
+
+
+<h2>SAM/BAM Format</h2>
+<ul>
+<li><a href="http://samtools.sourceforge.net/SAM1.pdf" TITLE="SAM Format" TARGET="_blank">SAM Format Spec</a></li> 
+<li><a href="http://samtools.sourceforge.net/pileup.shtml" TITLE="SAMtools Pileup Format" TARGET="_blank">Pileup Format</a></li> 
+<li><a href="http://samtools.sourceforge.net" TITLE="SAMtools" TARGET="_blank">SAMtools</a></li> 
+<li><a href="http://picard.sourceforge.net/index.shtml" TITLE="Picard Tools" TARGET="_blank">Picard</a></li> 
+</ul>
+
+<h2>Short Read Aligners</h2>
+<ul>
+<li><a href="http://bowtie-bio.sourceforge.net" title="bowtie aligner" TARGET="_blank">Bowtie</a></li> 
+<li><a href="http://bio-bwa.sourceforge.net" title="bwa aligner" TARGET="_blank">BWA</a></li> 
+<li><a href="http://maq.sourceforge.net" title="maq aligner" TARGET="_blank">Maq</a></li> 
+<li><a href="http://www.novocraft.com" title="novocraft aligner" TARGET="_blank">Novoalign</a></li> 
+<li><a href="http://www.sanger.ac.uk/resources/software/ssaha2" title="ssaha aligner" TARGET="_blank">SSAHA2</a></li> 
+</ul>
+
+
+</div>
+
+
+<div class="right"> 
+<!-- InstanceBeginEditable name="MainBody" -->
+
+<H2>Somatic Copy Number Alteration (CNA) Calling</H2>
+
+<A HREF="#copy-number-overview" TITLE="Copy number variant calling overview"><U>Overview</U></A><BR>
+<A HREF="#copy-number-workflow" TITLE="Copy number variant calling workflow"><U>Recommended Workflow</U></A><BR>
+<A HREF="#copy-number-command" TITLE="Copy number variant calling commands"><U>Commands</U></A><BR>
+<A HREF="#copy-number-input" TITLE="Copy number variant calling input"><U>Input</U></A><BR>
+<A HREF="#copy-number-methods" TITLE="Copy number variant calling methods"><U>Methods</U></A><BR>
+<A HREF="#copy-number-output" TITLE="Copy number variant calling output"><U>Output</U></A><BR>
+<A HREF="#copy-number-caller" TITLE="CopyCaller downstream analysis"><U>Filtering/Adjusting Results with <I>copyCaller</I></U></A><BR>
+<A HREF="#copy-number-segmentation" TITLE="Copy number segmentation"><U>Segmentation and Classification</U></A><BR>
+<A HREF="#recurrent-cna-analysis" TITLE="Identifying Recurrent CNAs"><U>Recurrent CNA Identification with CMDS</U></A><BR>
+
+<BR>
+
+<h3><a name="copy-number-overview">Overview</a></h3>
+VarScan v2.2.4 and later includes novel functionality to infer <B>somatic copy number changes</B> using data from matched tumor-normal pairs (manuscript under review). This is designed specifically for exome sequencing, in which a tumor sample and its matched normal were captured and sequenced under identical conditions. By performing a pairwise comparison of read depth between the samples at each position in the exome, it becomes possible to infer relative changes in copy number in the tumor sample. The output of this tool is a set of regions with chromosome, start, stop, and log-base-2 of the copy number change, which is similar to array-based copy number data and therefore amenable to the same segmentation algorithms.
+
+
+<BR><BR>
+
+<h3><a name="copy-number-workflow">Recommended Workflow</a></h3>
+If you're just getting started, here is the recommended procedure for performing copy number analysis using VarScan. Let's assume you have a normal BAM and a tumor BAM file from targeted (e.g. exome) sequencing, and would like to identify tumor-specific (somatic) copy number changes. <BR />
+<B>1. Run VarScan copynumber on normal and tumor mpileup output</B>
+<pre class="sequenceTextSmall">
+samtools mpileup -q 1 -f ref.fa normal.bam tumor.bam | 
+java -jar VarScan.jar copynumber varScan --mpileup 1
+</pre>
+This will create a single output file, <I>varScan.copynumber</I>, containing the raw copynumber calls.
+<BR /><BR />
+
+<B>2. Run VarScan copyCaller to adjust for GC content and make preliminary calls.</B>
+<pre class="sequenceTextSmall">
+java -jar VarScan.jar copyCaller varScan.copynumber --output-file varScan.copynumber.called
+ [--output-homdel-file varScan.copynumber.called.homdel]
+</pre>
+This will create two output files: varScan.copynumber.called (adjusted calls) and varScan.copynumber.called.gc (GC adjustment information).
+As of version 2.2.12 (August 2012), you can also specify an output file for candidate homozygous deletions.
+<BR /><BR />
+
+<B>3. Apply circular binary segmentation using the DNAcopy library from BioConductor</B>
+<BR />
+See the section on <A HREF="#copy-number-segmentation" TITLE="Copy number segmentation">CBS segmentation</A> for how to do this. A per-chromosome basis is usually best.
+<BR /><BR />
+
+<B>4. Visualize CBS results and recenter if necessary.</B>
+<BR />
+The DNAcopy package includes utilities to visualize the data points and segments. If all of the data and segments are consistently above or below the neutral value (0.0), 
+you can re-center the data points with <A HREF="#copy-number-caller" TITLE="CopyCaller downstream analysis">VarScan copyCaller</A>. Then repeat step 3.
+<BR /><BR />
+
+<B>5. Merge adjacent segments of similar copy number and classify events by size (large-scale or focal)</B>
+<BR />
+You can download the mergeSegements.pl utility script from the <A HREF="https://sourceforge.net/projects/varscan/files/scripts/" TITLE="VarScan Scripts">VarScan scripts folder</A> on SourceForge.
+<BR><BR>
+
+<h3><a name="copy-number-command">Command</a></h3>
+
+The syntax of the command for copy number calling is most similar to the VarScan somatic tool.
+<pre class="sequenceTextSmall">	
+java -jar VarScan.jar <B>copynumber</B> normal-tumor.pileup output.basename --mpileup 1
+</pre>
+
+Or, if you have independent normal and tumor pileup files:
+<pre class="sequenceTextSmall">	
+java -jar VarScan.jar <B>copynumber</B> normal.pileup tumor.pileup output.basename
+</pre>
+<BR>
+The above command will read data from normal and tumor files simultaneously, compute the Q>20 read depths for each, and report 
+the relative copy number in the tumor on a log scale. 
+
+<BR><BR>
+
+<h3><a name="copy-number-input">Input</a></h3>
+
+This command expects input from normal and tumor in 
+<A HREF="http://samtools.sourceforge.net/pileup.shtml" target="_blank">SAMtools pileup format</A>. To obtain this format, you will need:
+<UL>
+<LI>Sorted BAM files for normal and tumor.</LI>
+<LI>The reference sequence ("reference.fasta") to which reads were aligned, in FASTA format.</LI>
+<LI>The <A HREF="http://samtools.sourceforge.net">SAMtools</A> software package.</LI>
+</UL>
+The command that you'll use depends on the version of SAMtools that you have installed. In Linux/UNIX/MacOSX, it is possible to use piped input rather than actual files to save disk space and I/O. This is most easily done in a simple Perl script; examples are below.
+
+<BR><BR>
+
+
+<H4>SAMtools v0.1.17 (r973) and Later: Use mpileup</H4>
+
+As of SAMtools v0.1.17 (r973) and later, the pileup command is deprecated and has been replaced with mpileup to accommodate multi-sample calling. VarScan will read in a single 
+mpileup file containing normal and tumor data, respectively.
+
+Do NOT use any of the variant- or consensus-calling parameters. You just want the raw mpileup output. This Perl snippet shows you how to pipe input from SAMtools into VarScan:
+<pre class="sequenceTextSmall">
+samtools mpileup -q 1 -f $reference $normal_bam $tumor_bam | 
+java -jar VarScan.jar copynumber output.basename --mpileup 1
+</pre>
+
+<B>The command should be typed in a single line.</B> It's shown in two lines above for readability. 
+<BR /><BR />
+To limit the pileup to reads with mapping quality > 0 (recommended), use  this variation:
+<pre class="sequenceTextSmall">
+samtools mpileup -q 1 -f $reference $normal_bam $tumor_bam | 
+java -jar VarScan.jar copynumber output.basename --mpileup 1
+</pre>
+
+
+<BR>
+
+
+<H4>SAMtools Before v0.1.16 (r973): Use pileup</H4>
+
+Older versions of SAMtools support the pileup command, which expects a single BAM and a reference sequence. If possible, do NOT include -c or -v, as these will generate consensus format. VarScan supports this format but does not use SAMtools consensus information.
+
+<BR>
+<pre class="sequenceTextSmall">
+samtools pileup -f [reference sequence] [BAM file] >myData.pileup
+</pre>
+<BR />
+This Perl snippet shows you how to pipe input from SAMtools into VarScan:
+
+<pre class="sequenceTextSmall">
+$normal_pileup = "samtools pileup -f $reference $normal_bam";
+$tumor_pileup = "samtools pileup -f $reference $tumor_bam";
+</pre>
+<BR />
+To limit the pileup to reads with mapping quality > 0 (recommended), use  this variation:
+<pre class="sequenceTextSmall">
+$normal_pileup = "samtools view -b -u -q 1 $normal_bam | samtools pileup -f $reference -";
+$tumor_pileup = "samtools view -b -u -q 1 $tumor_bam | samtools pileup -f $reference -";
+</pre>
+<BR />
+Next, issue a system call that pipes input from these commands into VarScan :
+<pre class="sequenceTextSmall">
+bash -c \"java -jar VarScan.jar copynumber <\($normal_pileup\) <\($tumor_pileup\) output
+</pre>
+
+
+
+<BR><BR>
+
+<h3><a name="copy-number-methods">Methods</a></h3>
+<BR>
+<H4>Normal/Tumor Input Parsing</H4>
+In copynumber mode, VarScan reads the pileup files from normal and tumor simultaneously. Only positions that are present
+in both files, and meet the minimum coverage at least one of them, will be compared. 
+VarScan expects that positions on the same chromosome occur in ascending order, so <font class="boldText">input should be position-sorted!</font>
+Please note, this kind of simultaneous parsing gets 
+tricky when there are numerous reference sequences (e.g. unplaced contigs) to which reads from only one sample aligned. 
+VarScan tries to obtain the maximum number of comparisons, even if it means closing and reopening the normal file to try to 
+match contig and position. This can lead to looping errors; please report them if you see a number of warmings about 
+"Resetting normal file..." and (if possible) send us sample pileups.
+
+<BR><BR>
+<H4>Read Depth Comparison</H4>
+At each position, VarScan computes the Q>20 read depths for tumor and normal samples independently, and then the ratio of tumor 
+depth (Td) to normal depth (Nd). To account for differences in sequence data input, this ratio can be normalized with the 
+--data-ratio parameter, which should be a decimal between 0.00 and 1.00, and should reflect the amount of unique on-target bases 
+in the normal BAM (Ni) relative to the tumor BAM. The relative copy number in tumor is computed from the log-base-2 of the ratio of
+tumor depth to normal depth. 
+
+<BR /><BR>
+<H4>Segment Delineation</H4>
+
+VarScan will report contiguous regions with similar Q>20 read depths, one per line. Region boundaries are determined by (1) gaps of 2 or more consecutive positions that do not have sufficient coverage, or (2) change-points at which the ratio of normal depth to tumor depth changes significantly (p < 0.05 with Fisher's Exact Test of read depths at this position compared to those at previous position). To minimize the noise due to off-target reads, reported regions must meet or exceed the value of the --min-region-size parameter (default 100).
+
+<BR><BR>
+
+<h3><a name="copy-number-output">Output</a></h3>
+
+VarScan copynumber output files have this format:
+<TABLE CELLSPACING=0 CELLPADDING=2 BORDER=0>
+<TR align="center"><TD class="boldText">Field</TD><TD class="boldText">Description</TD></TR>
+<TR><TD class="sequenceText">chrom</TD><TD class="plainText">Chromosome or reference name </TD></TR>
+<TR><TD class="sequenceText">chr_start</TD><TD class="plainText">Start position of a contiguous copy number rgion (1-based) </TD></TR>
+<TR><TD class="sequenceText">chr_stop</TD><TD class="plainText">Stop position of a contiguous copy number rgion (1-based) </TD></TR>
+<TR><TD class="sequenceText">normal_depth &nbsp;</TD><TD class="plainText">Average sequence depth in the normal </TD></TR>
+<TR><TD class="sequenceText">tumor_depth</TD><TD class="plainText">Average sequence depth in the tumor </TD></TR>   
+<TR><TD class="sequenceText">log_ratio</TD><TD class="plainText">Log-base-2 ratio of the tumor/normal depth ratio </TD></TR>   
+<TR><TD class="sequenceText">gc_content</TD><TD class="plainText">Proportion of GC bases in the region, between 0 and 100 (v2.2.7 and later)</TD></TR>   
+</TABLE>
+<BR />
+
+
+<BR><BR>
+
+<h3><a name="copy-number-caller">Filtering/Adjusting Results with <I>copyCaller</I></a></h3>
+
+As of VarScan v2.2.7, the <I>copyCaller</I> command can be used to process VarScan2 copynumber output. This command allows you to:
+<UL>
+<LI>Filter copynumber calls by minimum coverage and/or region size.</LI>
+<LI>Adjust raw copynumber (log2) values for GC content.</LI>
+<LI>Classify each region as amplification (gain), deletion (loss), or neutral based on your preferred log2 thresholds.</LI>
+<LI>Recenter raw copynumber data if neutral segments are not on the log2=0 axis.</LI>
+</UL>
+The usage is as follows:
+<pre class="sequenceTextSmall">
+USAGE: java -jar VarScan.jar copyCaller [varScan.copynumber] OPTIONS
+	INPUT:
+	Raw output from the VarScan copynumber command (eg. varScan.output.copynumber)
+
+	OPTIONS:
+	--output-file	Output file to contain the calls
+	--min-coverage	Minimum read depth at a position to make a call [8]
+	--amp-threshold	Lower bound for log ratio to call amplification [0.25]
+	--del-threshold	Upper bound for log ratio to call deletion (provide as positive number) [0.25]
+	--min-region-size	Minimum size (in bases) for a region to be counted [10]
+	--recenter-up	Recenter data around an adjusted baseline > 0 [0]
+	--recenter-down	Recenter data around an adjusted baseline < 0 [0]
+</pre>
+
+<BR /><BR />
+
+
+<h3><a name="copy-number-segmentation">Segmentation and Classification</a></h3>
+
+Ideally, the raw output from VarScan copynumber should be smoothed and segmented by a program such as the <A HREF="http://www.bioconductor.org/packages/2.3/bioc/html/DNAcopy.html" target="_blank">DNAcopy library of the BioConductor project</A>. Once you've installed the R library, you might process VarScan copynumber output as follows:
+<pre class="sequenceTextSmall">
+library(DNAcopy)
+cn <- read.table("your.cn.file",header=F)
+CNA.object <-CNA( genomdat = cn[,6], chrom = cn[,1], maploc = cn[,2], data.type = 'logratio')
+CNA.smoothed <- smooth.CNA(CNA.object)
+segs <- segment(CNA.smoothed, verbose=0, min.width=2)
+segs2 = segs$output
+write.table(segs2[,2:6], file="out.file", row.names=F, col.names=F, quote=F, sep="\t")
+</pre>
+
+Thanks to Chris Miller for providing this code sample.
+
+<BR /><BR />
+
+<h3><a name="recurrent-cna-analysis">Recurrent CNA Identification with CMDS</a></h3>
+
+Identifying recurrent copy number alterations (RCNAs) across multiple tumors can enrich for events driving tumor development and progression. We recently 
+<A HREF="http://www.ncbi.nlm.nih.gov/pubmed/20031968" title="CMDS publication" target="_blank">published</A>
+Correlation Matrix Diagonal Segmentation (<A HREF="https://sourceforge.net/projects/cmds/" title="Download CMDS" target="_blank">CMDS</A>) to search for RCNAs using SNP array-based copy number data, and this program can be applied to exome-based copy number data as well. Doing so requires assigning copy number values to a discrete set of markers across the genome. The coordinates 
+of known exons, or of exome targets, can serve this purpose. By matching the coordinates of your marker set to each sample's copynumber regions, it's possible to retrieve the 
+log ratio for this sample at this position. If you would like to do this and need assistance, please send us an e-mail or post to the forum.
+
+
+<!-- InstanceEndEditable -->
+</div>
+
+<div style="clear: both;"> </div>
+
+</div>
+
+<div id="footer">
+Copyright © 2009-2013 by <A HREF="http://www.wustl.edu" TITLE="About Dan Koboldt" TARGET="_blank">Washington University in St. Louis</A>. Design by <a href="http://www.free-css-templates.com/" TARGET="_blank">CSS Templates</a>
+</div>
+
+</div>
+
+</body>
+<!-- InstanceEnd --></html>

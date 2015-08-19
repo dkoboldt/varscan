@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/VarScan.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>VarScan - Variant Detection in Massively Parallel Sequencing Data</title>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33985908-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- InstanceEndEditable --><meta http-equiv="Content-Language" content="English" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+
+<div id="wrap">
+
+<div id="header">
+<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+<TR><TD WIDTH="100%">
+<h1><a href="index.html" TITLE="VarScan variant detection tool">VarScan</a></h1>
+<h2>variant detection in massively parallel sequencing data</h2></TD>
+<TD valign="bottom"><A HREF="https://varscan.sourceforge.net" TITLE="VarScan Variant Calling Software"><IMG SRC="images/VarScan-FancyLogo.jpg" ALT="VarScan variant detection software" BORDER=0></A></TD>
+</TR>
+</TABLE>
+</div>
+
+<div id="menu">
+<ul>
+<li><a href="index.html" title="VarScan snp and indel caller">Home</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/" TITLE="Variant Discovery Project">Project</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/files/" TITLE="Download Mutation Detection Software">Download</a></li>
+<li><a href="using-varscan.html" TITLE="Variant calling documentation">Manual</a></li>
+<li><a href="support-faq.html" TITLE="Variant detection FAQ">FAQ</a></li>
+<li><a href="doc/index.html" TITLE="VarScan documentation">Documentation</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/forums/forum/1073559" TITLE="VarScan Support">Support Forum</a></li>
+</ul>
+</div>
+
+<div id="content">
+
+<div class="left"> 
+
+<h2>VarScan</h2>
+<ul>
+<li><a href="https://sourceforge.net/apps/mediawiki/varscan" TITLE="VarScan software">About/Wiki</a></li> 
+<li><a href="https://sourceforge.net/projects/varscan/" TITLE="Mutation Discovery Project">Project Page</a></li> 
+<li><a href="using-varscan.html" TITLE="Variant calling documentation">User's Manual</a></li> 
+<li><a href="doc/index.html" TITLE="VarScan Javadoc">JavaDoc</a></li> 
+<li><a href="https://sourceforge.net/projects/varscan/files/" TITLE="Download variant caller software" STYLE="font-weight: bold; color:#00CC00">Download Now</a></li>
+<li><a href="support-faq.html" TITLE="Variant caller support FAQ">Support/FAQ</a></li>
+<li><a style="color: #FF0000" href="https://sourceforge.net/projects/varscan/forums/forum/1073559" TITLE="VarScan Support">Support Forum</a></li>
+</ul>
+
+<h2>Calling Methods</h2>
+<ul>
+<li><a href="germline-calling.html" TITLE="Germline variant calling methods">Germline Variants</a></li> 
+<li><a href="somatic-calling.html" TITLE="Somatic mutation calling methods">Somatic Mutations</a></li> 
+<li><a href="copy-number-calling.html" TITLE="Somatic copy number alteration calling methods">Copy Number Variants</a></li> 
+<li><a href="trio-calling-de-novo-mutations.html" TITLE="de novo mutations from trio calling"><I>de novo</I> Mutations (Trios)</a></li> 
+</ul>
+
+<h2>WashU Analysis Tools</h2>
+<ul>
+<li><a href="http://gmt.genome.wustl.edu" TITLE="Genome Modeling Tools">Genome Modeling Tools</a></li> 
+<li><a href="http://gmt.genome.wustl.edu/breakdancer/1.2/index.html" TITLE="Breakdancer">BreakDancer</a> (SVs)</li> 
+<li><a href="http://gmt.genome.wustl.edu/somatic-sniper/0.7.4/index.html" TITLE="Somatic Sniper">Somatic Sniper</a> (SNVs)</li> 
+<li><a href="http://cmds.sourceforge.net/" TITLE="CMDS">CMDS</a> (Copy Number)</li> 
+</ul>
+
+
+<h2>SAM/BAM Format</h2>
+<ul>
+<li><a href="http://samtools.sourceforge.net/SAM1.pdf" TITLE="SAM Format" TARGET="_blank">SAM Format Spec</a></li> 
+<li><a href="http://samtools.sourceforge.net/pileup.shtml" TITLE="SAMtools Pileup Format" TARGET="_blank">Pileup Format</a></li> 
+<li><a href="http://samtools.sourceforge.net" TITLE="SAMtools" TARGET="_blank">SAMtools</a></li> 
+<li><a href="http://picard.sourceforge.net/index.shtml" TITLE="Picard Tools" TARGET="_blank">Picard</a></li> 
+</ul>
+
+<h2>Short Read Aligners</h2>
+<ul>
+<li><a href="http://bowtie-bio.sourceforge.net" title="bowtie aligner" TARGET="_blank">Bowtie</a></li> 
+<li><a href="http://bio-bwa.sourceforge.net" title="bwa aligner" TARGET="_blank">BWA</a></li> 
+<li><a href="http://maq.sourceforge.net" title="maq aligner" TARGET="_blank">Maq</a></li> 
+<li><a href="http://www.novocraft.com" title="novocraft aligner" TARGET="_blank">Novoalign</a></li> 
+<li><a href="http://www.sanger.ac.uk/resources/software/ssaha2" title="ssaha aligner" TARGET="_blank">SSAHA2</a></li> 
+</ul>
+
+
+</div>
+
+
+<div class="right"> 
+<!-- InstanceBeginEditable name="MainBody" -->
+
+<h2>VarScan Overview</h2>
+
+The advent of massively parallel sequencing technologies has fundamentally changed the study of genetics.  New platforms
+like the Illumina HiSeq2000 yield unprecedented levels of sequencing throughput. The analysis and interpretation
+of data from <A HREF="http://massgenomics.org" TITLE="Massgenomics next-gen sequencing blog">next-generation sequencing</A> (NGS) platforms presents a substantial informatics challenge. VarScan is a platform-independent software tool 
+developed at the <A HREF="http://genome.wustl.edu">Genome Institute at Washington University</A> to detect variants in NGS data.<BR />
+<A HREF="#varscan-platform-variant-types" TITLE="VarScan sequencing platform and variant caller types"><strong>Sequencing Platforms and Variant Types</strong></A><BR />
+<A HREF="#why-use-varscan" TITLE="Why Use VarScan variant caller"><strong>Why Use VarScan?</strong></A><BR />
+<A HREF="#install-varscan" TITLE="Install VarScan variant caller"><strong>Installing VarScan</strong></A><BR />
+<A HREF="#cite-varscan" TITLE="Citing VarScan variant caller"><strong>Citing VarScan</strong></A><BR />
+<!--<A HREF="#varscan-license" TITLE="VarScan license"><strong>License and Contact Information</strong></A><BR />-->
+<A HREF="#varscan-release-notes" TITLE="VarScan release notes"><strong>Release Notes and Announcements</strong></A><BR />
+
+<BR>
+
+<H3><A NAME="varscan-platform-variant-types"></A>Sequencing Platforms and Variant Types</H3>
+VarScan is a platform-independent mutation caller for <strong>targeted, exome, and whole-genome</strong> resequencing data generated on Illumina, SOLiD, Life/PGM, Roche/454, and similar instruments. The newest version, VarScan 2, is written in Java, so it runs on most operating systems. It can be used to detect different types of variation:
+<UL>
+<LI><strong><A HREF="http://varscan.sourceforge.net/germline-calling.html" TITLE="Germline variants">Germline variants</A></strong> (SNPs an dindels) in individual samples or pools of samples.</LI>
+<LI><strong><A HREF="http://varscan.sourceforge.net/germline-calling.html#variant-quality-score" TITLE="Multi sample variant calling">Multi-sample variants</A></strong> (shared or private) in multi-sample datasets (with mpileup).</LI>
+<LI><strong><A HREF="http://varscan.sourceforge.net/somatic-calling.html" TITLE="Somatic mutation calling">Somatic mutations</A></strong>, LOH events, and germline variants in tumor-normal pairs.</LI>
+<LI><strong><A HREF="http://varscan.sourceforge.net/copy-number-calling.html" TITLE="Somatic CNVs">Somatic copy number alterations</A></strong> (CNAs) in tumor-normal exome data.</LI>
+</UL>
+
+<BR>
+<H3><A NAME="why-use-varscan"></A>Why Use VarScan?</H3>
+Most of the published variant callers for next-generation sequencing data employ a probabilistic framework, such as Bayesian statistics, to detect variants and assess confidence in them. These approaches generally work quite well, but can be confounded by numerous factors such as <strong>extreme read depth, pooled samples, and contaminated or impure samples</strong>. In contrast, VarScan employs a robust <span style="color: #900"><strong>heuristic/statistic</strong></span> approach to call variants that meet desired thresholds for read depth, base quality, variant allele frequency, and statistical significance.
+<BR /><BR />
+VarScan is under continued development and improvement at a <strong><span style="color:#060">leading genome center</span></strong> with early access to new sequencing technologies, substantial computing resources, immense public/private datasets, and established expertise in sequencing, genetics, and genomics.
+<BR /><BR />
+<H4>Detecting Subclonal Mutations</H4>
+A 2013 study by Stead et al evaluated several somatic mutation callers including MuTect, Strelka, and VarScan2. They found that <strong><A HREF="http://www.ncbi.nlm.nih.gov/pubmed/23766071" TITLE="Evaluation of mutation callers for subclonal mutations" TARGET="_blank" style="color: #C00000">VarScan2 performed best overall</A></strong> with sequencing depths of 100x, 250x, 500x and 1000x required to accurately identify variants present at 10%, 5%, 2.5% and 1% respectively.
+
+
+<BR><BR>
+<H3><A NAME="install-varscan"></A>Installing VarScan</H3>
+The new release (VarScan 2) is written in Java and thus runs 
+on any operating system (Linux, UNIX, Mac OSX, even Windows) through the Java Virtual Machine. To install it, 
+you must <A HREF="https://sourceforge.net/projects/varscan/files/" TITLE="Download VarScan"><B>download the VarScan JAR file</B></A> 
+from SourceForge. Then, run VarScan from the command line:
+<BR><BR>
+<FONT class="sequenceText">java -jar VarScan.jar</FONT>
+<BR><BR>
+Usage information will be displayed.
+For details on using VarScan, please see the <A HREF="doc/index.html">User's Manual</A>.
+
+<BR><BR>
+<H3><A NAME="cite-varscan"></A>Citing VarScan</H3>
+
+Please note the version number, and cite the publications below with URL to cite VarScan:<BR><BR>
+<TABLE CELLSPACING=3 CELLPADDING=3 BORDER=0 BGCOLOR="#CCCCCC" WIDTH="90%" ALIGN="center">
+<TR><TD style="font-size: 10px;">
+<strong>VarScan 1:</strong> <span class="Z3988" title="ctx_ver=Z39.88-2004&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.jtitle=Bioinformatics+%28Oxford%2C+England%29&rft_id=info%3Apmid%2F19542151&rfr_id=info%3Asid%2Fresearchblogging.org&rft.atitle=VarScan%3A+variant+detection+in+massively+parallel+sequencing+of+individual+and+pooled+samples.&rft.issn=1367-4803&rft.date=2009&rft.volume=25&rft.issue=17&rft.spage=2283&rft.epage=5&rft.artnum=&rft.au=Koboldt+DC&rft.au=Chen+K&rft.au=Wylie+T&rft.au=Larson+DE&rft.au=McLellan+MD&rft.au=Mardis+ER&rft.au=Weinstock+GM&rft.au=Wilson+RK&rft.au=Ding+L&rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CComputer+Science%2CGenetics%2C+Bioinformatics%2C+Algorithms%2C+%2C+Computational+Theory%2C+Cancer">Koboldt DC, Chen K, Wylie T, Larson DE, McLellan MD, Mardis ER, Weinstock GM, Wilson RK, & Ding L (2009). VarScan: variant detection in massively parallel sequencing of individual and pooled samples. <span style="font-style: italic;">Bioinformatics (Oxford, England), 25</span> (17), 2283-5 PMID: <a rev="review" href="http://www.ncbi.nlm.nih.gov/pubmed/19542151">19542151</a></span><BR>
+<strong>VarScan 2:</strong> <span class="Z3988" title="ctx_ver=Z39.88-2004&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.jtitle=Genome+Research&rft_id=info%3Adoi%2F10.1101%2Fgr.129684.111&rfr_id=info%3Asid%2Fresearchblogging.org&rft.atitle=VarScan+2%3A+Somatic+mutation+and+copy+number+alteration+discovery+in+cancer+by+exome+sequencing&rft.issn=1088-9051&rft.date=2012&rft.volume=&rft.issue=&rft.spage=&rft.epage=&rft.artnum=http%3A%2F%2Fgenome.cshlp.org%2Fcgi%2Fdoi%2F10.1101%2Fgr.129684.111&rft.au=Koboldt%2C+D.&rft.au=Zhang%2C+Q.&rft.au=Larson%2C+D.&rft.au=Shen%2C+D.&rft.au=McLellan%2C+M.&rft.au=Lin%2C+L.&rft.au=Miller%2C+C.&rft.au=Mardis%2C+E.&rft.au=Ding%2C+L.&rft.au=Wilson%2C+R.&rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CMedicine%2CGenetics%2C+Bioinformatics%2C+Cancer">Koboldt, D., Zhang, Q., Larson, D., Shen, D., McLellan, M., Lin, L., Miller, C., Mardis, E., Ding, L., & Wilson, R. (2012). VarScan 2: Somatic mutation and copy number alteration discovery in cancer by exome sequencing <span style="font-style: italic;">Genome Research</span> DOI: <a rev="review" href="http://dx.doi.org/10.1101/gr.129684.111">10.1101/gr.129684.111</a></span>
+<BR />
+<strong>URL:</strong> http://varscan.sourceforge.net
+</TD></TR>
+</TABLE>
+
+<BR>
+<!--<H3><A NAME="varscan-license"></A>License</H3>
+
+VarScan is free for non-commercial use. For details on commercial licensing or general questions, please contact dkoboldt (at) genome (dot) wustl (dot) edu.
+-->
+<BR><BR>
+<H3><A NAME="varscan-release-notes"></A>Release Notes</H3>
+
+<TABLE CELLSPACING=0 CELLPADDING=3 BORDER=0>
+<TR>
+<TD class="sequenceText" VALIGN="top" NOWRAP>04-29-2015</TD>
+<TD> &nbsp; &nbsp; </TD>
+<TD><font class="boldText">VarScan v2.3.8 released</font> with <font class="boldText" style="color: #FF0000">fpfilter integration</font>. This expands and replaces the functionality
+of the fpfilter.pl accessory script.
+</TD>
+</TR>
+
+<TR>
+<TD class="sequenceText" VALIGN="top" NOWRAP>07-15-2014</TD>
+<TD> &nbsp; &nbsp; </TD>
+<TD><font class="boldText">VarScan v2.3.7 released</font> with <font class="boldText" style="color: #FF0000">SAMtools 0-depth fixes</font>. This should address crashes or 
+missing columns due to sites with 0 depth in the SAMtools mpileup output.
+</TD>
+</TR>
+
+<TR>
+<TD class="sequenceText" VALIGN="top" NOWRAP>01-30-2013</TD>
+<TD> &nbsp; &nbsp; </TD>
+<TD><font class="boldText">VarScan v2.3.4 released</font> with <font class="boldText" style="color: #FF0000">better VCF compatibility</font>. You can now specify a file of ordered sample names for multi-sample variant calling.
+</TD>
+</TR>
+
+<TR>
+<TD class="sequenceText" VALIGN="top" NOWRAP>08-09-2012</TD>
+<TD> &nbsp; &nbsp; </TD>
+<TD><font class="boldText">VarScan v2.3.1 released</font> with bug fixes, <font class="boldText" style="color: #FF0000">extended VCF compatibility, and more copynumber calling features.</font>. Multi-sample VCF output now has <A HREF="germline-calling.html#variant-quality-score" TITLE="VarScan quality scores">quality scores</A>.
+</TD>
+</TR>
+
+<TR>
+<TD class="sequenceText" VALIGN="top">05-01-2012</TD>
+<TD> &nbsp; &nbsp; </TD>
+<TD><font class="boldText">VarScan v2.2.11 released</font> with base quality parsing fix and <font class="boldText">VCF output option for somatic mutations</font>. 
+</TD>
+</TR>
+
+<TR>
+<TD class="sequenceText" VALIGN="top">03-23-2012</TD>
+<TD> &nbsp; &nbsp; </TD>
+<TD><font class="boldText">VarScan v2.2.10 released</font> with documentation, VCF column order, and somaticFilter fixes. 
+</TD>
+</TR>
+
+<TR>
+<TD class="sequenceText" VALIGN="top">02-29-2012</TD>
+<TD> &nbsp; &nbsp; </TD>
+<TD>Happy Leap Day: <font class="boldText">User's manual and documentation updated</font> to cover mpileup/multi-sample calling, somatic CNA detetion, and other items. 
+</TD>
+</TR>
+
+<TR>
+<TD class="sequenceText" VALIGN="top">02-03-2012</TD>
+<TD> &nbsp; &nbsp; </TD>
+<TD><font class="boldText">VarScan 2 published</font> in <I>Genome Research</I> with demonstration of <A HREF="http://www.massgenomics.org/2012/02/exome-based-copy-number-analysis-with-varscan-2.html" TITLE="VarScan 2 somatic mutation copy number detection">somatic mutation and copy number alteration</A> calling.
+</TD>
+</TR>
+
+<TR>
+<TD class="sequenceText" VALIGN="top">10-14-2011</TD>
+<TD> &nbsp; &nbsp; </TD>
+<TD><font class="boldText">VarScan v2.2.8 released</font> with new somatic calling features: Tumor-normal <A HREF="http://samtools.sourceforge.net/mpileup.shtml">mpileup</A> compatibility and 
+<A HREF="http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-41">VCF 4.1 output</A> option.
+</TD>
+</TR>
+
+<TR>
+<TD class="sequenceText" VALIGN="top">08-16-2011</TD>
+<TD> &nbsp; &nbsp; </TD>
+<TD><font class="boldText">VarScan v2.2.7 released</font> with copyCaller post-processing, <A HREF="http://samtools.sourceforge.net/mpileup.shtml">mpileup</A> compatibility for 
+multiple-sample calling, and <A HREF="http://www.1000genomes.org/node/101">VCF 4.0 output</A> option.
+</TD>
+</TR>
+
+<TR>
+<TD class="sequenceText" VALIGN="top">07-29-2011</TD>
+<TD> &nbsp; &nbsp; </TD>
+<TD><font class="boldText">New VarScan copynumber function</font> for identifying copy number changes in tumor-normal exome pairs.
+See the <A HREF="copy-number-calling.html" TITLE="VarScan Copy Number Calling">copy number calling</A> section for details.
+</TD>
+</TR>
+<TR>
+<TD class="sequenceText" VALIGN="top">04-29-2011</TD>
+<TD> &nbsp; &nbsp; </TD>
+<TD><font class="boldText">New Support FAQ launched!</font> Find answers to 
+<A HREF="support-faq.html" TITLE="VarScan Support">frequently-asked questions</A> about VarScan usage, 
+parameters, input/output, and other topics.
+</TD>
+</TR>
+<TR>
+<TD class="sequenceText" VALIGN="top">04-28-2011</TD>
+<TD> &nbsp; &nbsp; </TD>
+<TD><font class="boldText">VarScan v2.2.5 released!</font> New features include normal and tumor purity input parameters for somatic mutation calling, 
+which can improve sensitivity for genomes with reduced tumor cellularity, or matched normal samples that contain some 
+tumor cells (e.g. leukemias).
+</TD>
+</TR>
+
+</TABLE>
+
+<!-- InstanceEndEditable -->
+</div>
+
+<div style="clear: both;"> </div>
+
+</div>
+
+<div id="footer">
+Copyright © 2009-2013 by <A HREF="http://www.wustl.edu" TITLE="About Dan Koboldt" TARGET="_blank">Washington University in St. Louis</A>. Design by <a href="http://www.free-css-templates.com/" TARGET="_blank">CSS Templates</a>
+</div>
+
+</div>
+
+</body>
+<!-- InstanceEnd --></html>

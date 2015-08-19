@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/VarScan.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>VarScan - Somatic Mutation Calling</title>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33985908-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- InstanceEndEditable --><meta http-equiv="Content-Language" content="English" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+
+<div id="wrap">
+
+<div id="header">
+<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+<TR><TD WIDTH="100%">
+<h1><a href="index.html" TITLE="VarScan variant detection tool">VarScan</a></h1>
+<h2>variant detection in massively parallel sequencing data</h2></TD>
+<TD valign="bottom"><A HREF="https://varscan.sourceforge.net" TITLE="VarScan Variant Calling Software"><IMG SRC="images/VarScan-FancyLogo.jpg" ALT="VarScan variant detection software" BORDER=0></A></TD>
+</TR>
+</TABLE>
+</div>
+
+<div id="menu">
+<ul>
+<li><a href="index.html" title="VarScan snp and indel caller">Home</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/" TITLE="Variant Discovery Project">Project</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/files/" TITLE="Download Mutation Detection Software">Download</a></li>
+<li><a href="using-varscan.html" TITLE="Variant calling documentation">Manual</a></li>
+<li><a href="support-faq.html" TITLE="Variant detection FAQ">FAQ</a></li>
+<li><a href="doc/index.html" TITLE="VarScan documentation">Documentation</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/forums/forum/1073559" TITLE="VarScan Support">Support Forum</a></li>
+</ul>
+</div>
+
+<div id="content">
+
+<div class="left"> 
+
+<h2>VarScan</h2>
+<ul>
+<li><a href="https://sourceforge.net/apps/mediawiki/varscan" TITLE="VarScan software">About/Wiki</a></li> 
+<li><a href="https://sourceforge.net/projects/varscan/" TITLE="Mutation Discovery Project">Project Page</a></li> 
+<li><a href="using-varscan.html" TITLE="Variant calling documentation">User's Manual</a></li> 
+<li><a href="doc/index.html" TITLE="VarScan Javadoc">JavaDoc</a></li> 
+<li><a href="https://sourceforge.net/projects/varscan/files/" TITLE="Download variant caller software" STYLE="font-weight: bold; color:#00CC00">Download Now</a></li>
+<li><a href="support-faq.html" TITLE="Variant caller support FAQ">Support/FAQ</a></li>
+<li><a style="color: #FF0000" href="https://sourceforge.net/projects/varscan/forums/forum/1073559" TITLE="VarScan Support">Support Forum</a></li>
+</ul>
+
+<h2>Calling Methods</h2>
+<ul>
+<li><a href="germline-calling.html" TITLE="Germline variant calling methods">Germline Variants</a></li> 
+<li><a href="somatic-calling.html" TITLE="Somatic mutation calling methods">Somatic Mutations</a></li> 
+<li><a href="copy-number-calling.html" TITLE="Somatic copy number alteration calling methods">Copy Number Variants</a></li> 
+<li><a href="trio-calling-de-novo-mutations.html" TITLE="de novo mutations from trio calling"><I>de novo</I> Mutations (Trios)</a></li> 
+</ul>
+
+<h2>WashU Analysis Tools</h2>
+<ul>
+<li><a href="http://gmt.genome.wustl.edu" TITLE="Genome Modeling Tools">Genome Modeling Tools</a></li> 
+<li><a href="http://gmt.genome.wustl.edu/breakdancer/1.2/index.html" TITLE="Breakdancer">BreakDancer</a> (SVs)</li> 
+<li><a href="http://gmt.genome.wustl.edu/somatic-sniper/0.7.4/index.html" TITLE="Somatic Sniper">Somatic Sniper</a> (SNVs)</li> 
+<li><a href="http://cmds.sourceforge.net/" TITLE="CMDS">CMDS</a> (Copy Number)</li> 
+</ul>
+
+
+<h2>SAM/BAM Format</h2>
+<ul>
+<li><a href="http://samtools.sourceforge.net/SAM1.pdf" TITLE="SAM Format" TARGET="_blank">SAM Format Spec</a></li> 
+<li><a href="http://samtools.sourceforge.net/pileup.shtml" TITLE="SAMtools Pileup Format" TARGET="_blank">Pileup Format</a></li> 
+<li><a href="http://samtools.sourceforge.net" TITLE="SAMtools" TARGET="_blank">SAMtools</a></li> 
+<li><a href="http://picard.sourceforge.net/index.shtml" TITLE="Picard Tools" TARGET="_blank">Picard</a></li> 
+</ul>
+
+<h2>Short Read Aligners</h2>
+<ul>
+<li><a href="http://bowtie-bio.sourceforge.net" title="bowtie aligner" TARGET="_blank">Bowtie</a></li> 
+<li><a href="http://bio-bwa.sourceforge.net" title="bwa aligner" TARGET="_blank">BWA</a></li> 
+<li><a href="http://maq.sourceforge.net" title="maq aligner" TARGET="_blank">Maq</a></li> 
+<li><a href="http://www.novocraft.com" title="novocraft aligner" TARGET="_blank">Novoalign</a></li> 
+<li><a href="http://www.sanger.ac.uk/resources/software/ssaha2" title="ssaha aligner" TARGET="_blank">SSAHA2</a></li> 
+</ul>
+
+
+</div>
+
+
+<div class="right"> 
+<!-- InstanceBeginEditable name="MainBody" -->
+
+<H2>Somatic Mutation Calling</H2>
+
+<A HREF="#somatic-overview" TITLE="Somatic variant calling overview"><U>Overview</U></A><BR>
+<A HREF="#somatic-command" TITLE="Somatic variant calling commands"><U>Commands</U></A><BR>
+<A HREF="#somatic-input" TITLE="Somatic variant calling input"><U>Input</U></A><BR>
+<A HREF="#somatic-methods" TITLE="Somatic variant calling methods"><U>Methods</U></A><BR>
+<A HREF="#somatic-output" TITLE="Somatic variant calling output"><U>Output</U></A><BR>
+<BR>
+
+<h3><a name="somatic-overview">Overview</a></h3>
+VarScan calls somatic variants (SNPs and indels) using a heuristic method and a statistical test based on the number 
+of aligned reads supporting each allele. 
+
+<BR><BR>
+
+<h3><a name="somatic-command">Command</a></h3>
+
+The syntax of the command for somatic mutation calling differs somewhat from germline calling subcommands. 
+<pre class="sequenceTextSmall">	
+java -jar VarScan.jar <B>somatic</B> normal.pileup tumor.pileup output.basename
+</pre>
+<BR>
+The above command will report germline, somatic, and LOH events at positions where both normal and tumor samples 
+have sufficient coverage (default: 8). If the --validation flag is set to 1, it also report non-variant (reference) 
+calls at all positions with sufficient coverage, for the purpose of refuting false positives with validation data.
+
+<BR><BR>
+
+<h3><a name="somatic-input">Input</a></h3>
+
+This command expects both a normal and a tumor file in 
+<A HREF="http://samtools.sourceforge.net/pileup.shtml" target="_blank">SAMtools pileup format</A>.
+from sequence alignments in binary alignment/map (BAM) format.  To build a pileup file, you will need:
+<UL>
+<LI>A SAM/BAM file ("myData.bam") that has been sorted using the <I>sort</I> command of SAMtools.</LI>
+<LI>The reference sequence ("reference.fasta") to which reads were aligned, in FASTA format.</LI>
+<LI>The <A HREF="http://samtools.sourceforge.net">SAMtools</A> software package.</LI>
+</UL>
+
+The command that 
+you'll use depends on the version of SAMtools that you have installed. In Linux/UNIX/MacOSX, it is possible to use piped input rather than actual files to save disk space and I/O. This is most easily done in a simple Perl script; examples are below.
+
+<BR><BR>
+
+<H4>SAMtools Before v0.1.16 (r973): Use pileup</H4>
+
+Older versions of SAMtools support the pileup command, which expects a single BAM and a reference sequence. If possible, do NOT include -c or -v, as these will generate consensus format. VarScan supports this format but does not use SAMtools consensus information.
+
+<BR>
+<pre class="sequenceTextSmall">
+samtools pileup -f [reference sequence] [BAM file] >myData.pileup
+</pre>
+<BR />
+This Perl snippet shows you how to pipe input from SAMtools into VarScan:
+
+<pre class="sequenceTextSmall">
+$normal_pileup = "samtools pileup -f $reference $normal_bam";
+$tumor_pileup = "samtools pileup -f $reference $tumor_bam";
+</pre>
+<BR />
+To limit the pileup to reads with mapping quality > 0 (recommended), use  this variation:
+<pre class="sequenceTextSmall">
+$normal_pileup = "samtools view -b -u -q 1 $normal_bam | samtools pileup -f $reference -";
+$tumor_pileup = "samtools view -b -u -q 1 $tumor_bam | samtools pileup -f $reference -";
+</pre>
+<BR />
+Next, issue a system call that pipes input from these commands into VarScan :
+<pre class="sequenceTextSmall">
+bash -c \"java -jar VarScan.jar somatic <\($normal_pileup\) <\($tumor_pileup\) output
+</pre>
+
+
+<BR>
+
+<H4>SAMtools v0.1.17 (r973) and Later: Use mpileup</H4>
+
+As of SAMtools v0.1.17 (r973) and later, the pileup command is deprecated and has been replaced with mpileup to accommodate multi-sample calling. You can still generate a pileup file, but make sure you provide only a single BAM:
+
+<pre class="sequenceTextSmall">
+samtools mpileup -f [reference sequence] [BAM file] >myData.pileup
+</pre>
+
+<BR />
+
+Do NOT use any of the variant- or consensus-calling parameters. You just want the raw pileup output. This Perl snippet shows you how to pipe input from SAMtools into VarScan:
+
+<pre class="sequenceTextSmall">
+$normal_pileup = "samtools mpileup -f $reference $normal_bam";
+$tumor_pileup = "samtools mpileup -f $reference $tumor_bam";
+</pre>
+<BR />
+To limit the pileup to reads with mapping quality > 0 (recommended), use  this variation:
+<pre class="sequenceTextSmall">
+$normal_pileup = "samtools mpileup -q 1 -f $reference $normal_bam";
+$tumor_pileup = "samtools mpileup -q 1 -f $reference $tumor_bam";
+</pre>
+<BR />
+Next, issue a system call that pipes input from these commands into VarScan :
+<pre class="sequenceTextSmall">
+bash -c \"java -jar VarScan.jar somatic <\($normal_pileup\) <\($tumor_pileup\) output
+</pre>
+
+
+<BR><BR>
+
+<h3><a name="somatic-methods">Methods</a></h3>
+<BR>
+<H4>Normal/Tumor Input Parsing</H4>
+In somatic mode, VarScan reads the pileup files from normal and tumor simultaneously. Only positions that are present
+in both files, and meet the minimum coverage in both files, will be compared. 
+VarScan expects that positions on the same chromosome occur in ascending order, so <font class="boldText">input should be position-sorted!</font>
+Please note, this kind of simultaneous parsing gets 
+tricky when there are numerous reference sequences (e.g. unplaced contigs) to which reads from only one sample aligned. 
+VarScan tries to obtain the maximum number of comparisons, even if it means closing and reopening the normal file to try to 
+match contig and position. This can lead to looping errors; please report them if you see a number of warmings about 
+"Resetting normal file..." and (if possible) send us sample pileups.
+
+<BR><BR>
+<H4>Variant Calling and Comparison</H4>
+
+At every position where both normal and tumor have sufficient coverage, a comparison is made. 
+First, normal and tumor are called independently using the 
+<A HREF="germline-calling.html" TITLE="Germline Variant calling">germline consensus calling</A> functionality. 
+Then, their genotypes are compared by the following algorithm:
+<BR><BR>
+
+&nbsp; &nbsp; <font class="boldText">If tumor matches normal: </font><BR>
+&nbsp; &nbsp; &nbsp; &nbsp; If tumor and normal match the reference <BR>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <font class="sequenceText">==></font> Call Reference <BR>
+&nbsp; &nbsp; &nbsp; &nbsp; Else tumor and normal do not match the reference <BR>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <font class="sequenceText">==></font> Call Germline <BR>
+<BR>
+&nbsp; &nbsp; <font class="boldText">Else tumor does not match normal: </font><BR>
+&nbsp; &nbsp; Calculate significance of allele frequency difference by Fisher's Exact Test <BR>
+&nbsp; &nbsp; &nbsp; &nbsp; <font class="boldText">If difference is significant (p-value < threshold):</font><BR>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; If normal matches reference<BR>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <font class="sequenceText">==></font> Call Somatic<BR>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Else If normal is heterozygous<BR>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <font class="sequenceText">==></font> Call LOH<BR>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Else normal and tumor are variant, but different<BR>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <font class="sequenceText">==></font> Call IndelFilter or Unknown<BR>
+
+&nbsp; &nbsp; &nbsp; &nbsp; <font class="boldText">Else difference is not significant:</font><BR>
+&nbsp; &nbsp; &nbsp; &nbsp; Combined tumor and normal read counts for each allele. Recalculate p-value.<BR>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <font class="sequenceText">==></font> Call Germline
+
+<BR><BR>
+
+<h3><a name="somatic-output">Output</a></h3>
+
+VarScan creates two output files by default, one for SNVs (.snp) and one for indels (.indel). If the 
+--validation flag is turned on, a third file (.validation) will also be generated containing all positions
+that were called. Output files have headers, and all share the same format. The table below describes each 
+field in VarScan native output format, along with where to find the same value in VCF's INFO (column 8), NORMAL (column 10), or TUMOR (column 11) fields.
+<TABLE CELLSPACING=0 CELLPADDING=2 BORDER=1 BORDERCOLOR="#999999">
+<TR align="center"><TD class="boldText">Native Output Field</TD><TD class="boldText">VCF Field</TD><TD class="boldText">Description</TD></TR>
+<TR><TD class="sequenceText">chrom</TD><TD class="sequenceText">CHROM</TD><TD class="plainText">Chromosome or reference name </TD></TR>
+<TR><TD class="sequenceText">position</TD><TD class="sequenceText">POS</TD><TD class="plainText">Position from pileup (1-based) </TD></TR>
+<TR><TD class="sequenceText">ref</TD><TD class="sequenceText">REF</TD><TD class="plainText">Reference base at this position </TD></TR>
+<TR><TD class="sequenceText">var</TD><TD class="sequenceText">ALT</TD><TD class="plainText">Variant base seen in tumor </TD></TR>
+<TR><TD class="sequenceText">normal_reads1</TD><TD class="sequenceText">RD (col 10)</TD><TD class="plainText">Reads supporting reference in normal </TD></TR>   
+<TR><TD class="sequenceText">normal_reads2</TD><TD class="sequenceText">AD (col 10)</TD><TD class="plainText">Reads supporting variant in normal </TD></TR>   
+<TR><TD class="sequenceText">normal_var_freq</TD><TD class="sequenceText" NOWRAP>FREQ(col 10)</TD><TD class="plainText">Variant allele frequency in normal </TD></TR> 
+<TR><TD class="sequenceText">normal_gt</TD><TD class="sequenceText">GT (col 10)</TD><TD class="plainText">Consensus genotype call in normal </TD></TR>       
+<TR><TD class="sequenceText">tumor_reads1</TD><TD class="sequenceText">RD (col 11)</TD><TD class="plainText">Reads supporting reference in tumor </TD></TR>   
+<TR><TD class="sequenceText">tumor_reads2</TD><TD class="sequenceText">AD (col 11)</TD><TD class="plainText">Reads supporting variant in tumor </TD></TR>   
+<TR><TD class="sequenceText">tumor_var_freq</TD><TD class="sequenceText" NOWRAP>FREQ(col 11)</TD><TD class="plainText">Variant allele frequency in tumor </TD></TR> 
+<TR><TD class="sequenceText">tumor_gt</TD><TD class="sequenceText">GT (col 11)</TD><TD class="plainText">Consensus genotype call in tumor </TD></TR>  
+<TR><TD class="sequenceText">somatic_status</TD><TD class="sequenceText">SS (col 8)</TD><TD class="plainText">Somatic status call (Germline, Somatic, LOH, or Unknown)</TD></TR>
+<TR><TD class="sequenceText">variant_p_value</TD><TD class="sequenceText">GPV (col 8)</TD><TD class="plainText">Variant p-value for Germline events</TD></TR>  
+<TR><TD class="sequenceText">somatic_p_value</TD><TD class="sequenceText">SPV (col 8)</TD><TD class="plainText">Somatic p-value for Somatic/LOH events</TD></TR> 
+<TR><TD class="sequenceText">tumor_reads1_plus</TD><TD class="sequenceText">DP4 (col 11)</TD><TD class="plainText">Tumor reference-supporting reads on + strand</TD></TR>       
+<TR><TD class="sequenceText">tumor_reads1_minus</TD><TD class="sequenceText">DP4 (col 11)</TD><TD class="plainText">Tumor reference-supporting reads on - strand </TD></TR>      
+<TR><TD class="sequenceText">tumor_reads2_plus</TD><TD class="sequenceText">DP4 (col 11)</TD><TD class="plainText">Tumor variant-supporting reads on + strand </TD></TR>       
+<TR><TD class="sequenceText">tumor_reads2_minus &nbsp;</TD><TD class="sequenceText">DP4 (col 11)</TD><TD class="plainText">Tumor variant-supporting reads on - strand </TD></TR>
+<TR><TD class="sequenceText">normal_reads1_plus</TD><TD class="sequenceText">DP4 (col 10)</TD><TD class="plainText">Normal reference-supporting reads on + strand</TD></TR>       
+<TR><TD class="sequenceText">normal_reads1_minus</TD><TD class="sequenceText">DP4 (col 10)</TD><TD class="plainText">Normal reference-supporting reads on - strand </TD></TR>      
+<TR><TD class="sequenceText">normal_reads2_plus</TD><TD class="sequenceText">DP4 (col 10)</TD><TD class="plainText">Normal variant-supporting reads on + strand </TD></TR>       
+<TR><TD class="sequenceText">normal_reads2_minus</TD><TD class="sequenceText">DP4 (col 10)</TD><TD class="plainText">Normal variant-supporting reads on - strand </TD></TR>
+</TABLE>
+
+<BR>
+<H4>Isolating Calls by Type and Confidence</H4>
+The latest release of VarScan includes a new (undocumented) subcommand that will separate a somatic output file by 
+somatic_status (Germline, Somatic, LOH). Somatic mutations will further be classified as high-confidence (.hc) or 
+low-confidence (.lc). The command:
+<pre class="sequenceText">
+java -jar VarScan.jar processSomatic [output.snp]
+</pre>
+<BR>
+The above command will produce 4 output files:
+<pre class="sequenceText">
+output.snp.Somatic.hc 	(high-confidence Somatic mutations)
+output.snp.Somatic.lc 	(low-confidence Somatic mutations)
+output.snp.Germline 	(sites called Germline)
+output.snp.LOH 		(sites called loss-of-heterozygosity, or LOH)
+</pre>
+
+<BR>
+<H4>A Note on Indel Positions</H4>
+
+VarScan calls consensus bases, SNPs, and indels <font class="boldText">at the position reported by SAMtools</font> in the pileup file. For SNPs and 
+consensus bases, this is the 1-based position of the site or variant. Indels, however, are reported at the base immediately 
+upstream of where they occur. Thus, the first inserted base occurs at (position + 1) and the first deleted base occurs
+at (position + 1). This is why, for deletions, the reference base (e.g. A) may not match the deleted sequence (e.g. */C).
+
+
+
+
+<!-- InstanceEndEditable -->
+</div>
+
+<div style="clear: both;"> </div>
+
+</div>
+
+<div id="footer">
+Copyright © 2009-2013 by <A HREF="http://www.wustl.edu" TITLE="About Dan Koboldt" TARGET="_blank">Washington University in St. Louis</A>. Design by <a href="http://www.free-css-templates.com/" TARGET="_blank">CSS Templates</a>
+</div>
+
+</div>
+
+</body>
+<!-- InstanceEnd --></html>

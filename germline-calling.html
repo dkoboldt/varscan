@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/VarScan.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>VarScan - Variant Detection in Massively Parallel Sequencing Data - Germline Variant Calling</title>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33985908-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- InstanceEndEditable --><meta http-equiv="Content-Language" content="English" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+
+<div id="wrap">
+
+<div id="header">
+<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+<TR><TD WIDTH="100%">
+<h1><a href="index.html" TITLE="VarScan variant detection tool">VarScan</a></h1>
+<h2>variant detection in massively parallel sequencing data</h2></TD>
+<TD valign="bottom"><A HREF="https://varscan.sourceforge.net" TITLE="VarScan Variant Calling Software"><IMG SRC="images/VarScan-FancyLogo.jpg" ALT="VarScan variant detection software" BORDER=0></A></TD>
+</TR>
+</TABLE>
+</div>
+
+<div id="menu">
+<ul>
+<li><a href="index.html" title="VarScan snp and indel caller">Home</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/" TITLE="Variant Discovery Project">Project</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/files/" TITLE="Download Mutation Detection Software">Download</a></li>
+<li><a href="using-varscan.html" TITLE="Variant calling documentation">Manual</a></li>
+<li><a href="support-faq.html" TITLE="Variant detection FAQ">FAQ</a></li>
+<li><a href="doc/index.html" TITLE="VarScan documentation">Documentation</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/forums/forum/1073559" TITLE="VarScan Support">Support Forum</a></li>
+</ul>
+</div>
+
+<div id="content">
+
+<div class="left"> 
+
+<h2>VarScan</h2>
+<ul>
+<li><a href="https://sourceforge.net/apps/mediawiki/varscan" TITLE="VarScan software">About/Wiki</a></li> 
+<li><a href="https://sourceforge.net/projects/varscan/" TITLE="Mutation Discovery Project">Project Page</a></li> 
+<li><a href="using-varscan.html" TITLE="Variant calling documentation">User's Manual</a></li> 
+<li><a href="doc/index.html" TITLE="VarScan Javadoc">JavaDoc</a></li> 
+<li><a href="https://sourceforge.net/projects/varscan/files/" TITLE="Download variant caller software" STYLE="font-weight: bold; color:#00CC00">Download Now</a></li>
+<li><a href="support-faq.html" TITLE="Variant caller support FAQ">Support/FAQ</a></li>
+<li><a style="color: #FF0000" href="https://sourceforge.net/projects/varscan/forums/forum/1073559" TITLE="VarScan Support">Support Forum</a></li>
+</ul>
+
+<h2>Calling Methods</h2>
+<ul>
+<li><a href="germline-calling.html" TITLE="Germline variant calling methods">Germline Variants</a></li> 
+<li><a href="somatic-calling.html" TITLE="Somatic mutation calling methods">Somatic Mutations</a></li> 
+<li><a href="copy-number-calling.html" TITLE="Somatic copy number alteration calling methods">Copy Number Variants</a></li> 
+<li><a href="trio-calling-de-novo-mutations.html" TITLE="de novo mutations from trio calling"><I>de novo</I> Mutations (Trios)</a></li> 
+</ul>
+
+<h2>WashU Analysis Tools</h2>
+<ul>
+<li><a href="http://gmt.genome.wustl.edu" TITLE="Genome Modeling Tools">Genome Modeling Tools</a></li> 
+<li><a href="http://gmt.genome.wustl.edu/breakdancer/1.2/index.html" TITLE="Breakdancer">BreakDancer</a> (SVs)</li> 
+<li><a href="http://gmt.genome.wustl.edu/somatic-sniper/0.7.4/index.html" TITLE="Somatic Sniper">Somatic Sniper</a> (SNVs)</li> 
+<li><a href="http://cmds.sourceforge.net/" TITLE="CMDS">CMDS</a> (Copy Number)</li> 
+</ul>
+
+
+<h2>SAM/BAM Format</h2>
+<ul>
+<li><a href="http://samtools.sourceforge.net/SAM1.pdf" TITLE="SAM Format" TARGET="_blank">SAM Format Spec</a></li> 
+<li><a href="http://samtools.sourceforge.net/pileup.shtml" TITLE="SAMtools Pileup Format" TARGET="_blank">Pileup Format</a></li> 
+<li><a href="http://samtools.sourceforge.net" TITLE="SAMtools" TARGET="_blank">SAMtools</a></li> 
+<li><a href="http://picard.sourceforge.net/index.shtml" TITLE="Picard Tools" TARGET="_blank">Picard</a></li> 
+</ul>
+
+<h2>Short Read Aligners</h2>
+<ul>
+<li><a href="http://bowtie-bio.sourceforge.net" title="bowtie aligner" TARGET="_blank">Bowtie</a></li> 
+<li><a href="http://bio-bwa.sourceforge.net" title="bwa aligner" TARGET="_blank">BWA</a></li> 
+<li><a href="http://maq.sourceforge.net" title="maq aligner" TARGET="_blank">Maq</a></li> 
+<li><a href="http://www.novocraft.com" title="novocraft aligner" TARGET="_blank">Novoalign</a></li> 
+<li><a href="http://www.sanger.ac.uk/resources/software/ssaha2" title="ssaha aligner" TARGET="_blank">SSAHA2</a></li> 
+</ul>
+
+
+</div>
+
+
+<div class="right"> 
+<!-- InstanceBeginEditable name="MainBody" -->
+
+<H2>Germline Variant Calling</H2>
+
+VarScan can be used to identify germline SNPs and indels in one or multiple samples.<BR /><BR />
+<strong><U>Contents:</U></strong><BR />
+<A HREF="#germline-overview" TITLE="Germline variant calling overview"><U><strong>Overview</strong></U></A><BR>
+<A HREF="#germline-commands" TITLE="Germline variant calling commands"><U><strong>Commands</strong></U></A><BR>
+<A HREF="#germline-input" TITLE="Germline variant calling input"><U><strong>Input</strong></U></A><BR>
+<A HREF="#germline-methods" TITLE="Germline variant calling methods"><U><strong>Methods</strong></U></A><BR>
+<A HREF="#germline-output" TITLE="Germline variant calling output"><U><strong>Output</strong></U></A><BR>
+&nbsp; <A HREF="#vcf-output" TITLE="Germline variant calling VCF output"><U>VCF Output</U></A><BR>
+&nbsp; <A HREF="#variant-quality-score" TITLE="Germline variant calling output"><U>Quality Scores</U></A><BR>
+&nbsp; <A HREF="#indel-positions" TITLE="Germline indel positions"><U>A Note on Indel Positions</U></A><BR>
+<BR>
+
+<h3><a name="germline-overview">Overview</a></h3>
+VarScan calls germline variants (SNPs and indels) using a heuristic method and a statistical test based on the number 
+of aligned reads supporting each allele. 
+
+<BR><BR>
+
+<h3><a name="germline-commands">Commands</a></h3>
+
+Three VarScan subcommands will invoke the germline variant calling model. These work with single-sample and multi-sample mpileup input:
+<pre class="sequenceText">	
+<B>mpileup2snp</B> - calls single nucleotide polymorphisms (SNPs)
+<B>mpileup2indel</B> - calls insertions and deletions (indels)
+<B>mpileup2cns</B> - calls a consensus genotype (reference, SNP, or indel)
+</pre>
+<BR>
+The first two (mpileup2snp and mpileup2indel) report *only* positions at which a variant of the given type (SNP and indel) 
+was called. The third command (mpileup2cns) reports all positions that met the miniumum coverage, or 
+(with the -v parameter), all positions at which a SNP or an indel was called. Use the <font class="sequenceText">--output-vcf 1</font> argument to get VCF 4.1 output.
+
+<BR /><BR />
+The following commands still work, but only with single-sample pileup and they do NOT include full VCF output support.
+<pre class="sequenceText">	
+<B>pileup2snp</B> - calls single nucleotide polymorphisms (SNPs)
+<B>pileup2indel</B> - calls insertions and deletions (indels)
+<B>pileup2cns</B> - calls a consensus genotype (reference, SNP, or indel)
+</pre>
+<BR>
+The first two (pileup2snp and pileup2indel) report *only* positions at which a variant of the given type (SNP and indel) 
+was called. The third command (pileup2cns) reports all positions that met the miniumum coverage, or 
+(with the -v parameter), all positions at which a SNP or an indel was called.
+
+<BR><BR>
+
+<h3><a name="germline-input">Input</a></h3>
+
+VarScan expects its input to be 
+<A HREF="http://samtools.sourceforge.net/pileup.shtml" target="_blank">SAMtools pileup format</A>. 
+from sequence alignments in binary alignment/map (BAM) format.  To generate this format, you will need
+<UL>
+<LI>One or more SAM/BAM files ("myData.bam") that have been sorted using the <I>sort</I> command of SAMtools.</LI>
+<LI>The reference sequence ("reference.fasta") to which reads were aligned, in FASTA format.</LI>
+<LI>The <A HREF="http://samtools.sourceforge.net">SAMtools</A> software package.</LI>
+</UL>
+<BR>
+Generate a pileup file with the following command:
+<pre class="sequenceTextSmall">
+
+samtools mpileup -B -f [reference sequence] [BAM file] >myData.pileup
+</pre>
+<BR>
+Note the use of the -B parameter to disable BAQ computation. This adjustment seems too stringent, and often reduces base quality scores too aggressively. Note, to save disk space and file I/O, you can redirect pileup output directly 
+to VarScan with a "pipe" command. For example:
+<BR>
+<pre class="sequenceTextSmall">
+
+samtools mpileup -B -f reference.fasta myData.bam | java -jar VarScan.v2.2.jar mpileup2snp
+</pre>
+
+<BR><BR>
+
+<H4>Older Versions of SAMtools: Pileup Output</H4>
+
+Older versions of SAMtools use the 
+<A HREF="http://samtools.sourceforge.net/pileup.shtml" target="_blank">pileup</A> command, which is no longer available in newer versions. If you have 
+such a version, you can generate pileup output for a single sample as follows. You'll need:
+<UL>
+<LI>A SAM/BAM file ("myData.bam") that has been sorted using the <I>sort</I> command of SAMtools.</LI>
+<LI>The reference sequence ("reference.fasta") to which reads were aligned, in FASTA format.</LI>
+<LI>The <A HREF="http://samtools.sourceforge.net">SAMtools</A> software package.</LI>
+</UL>
+<BR>
+Generate a pileup file with the following command:
+<pre class="sequenceTextSmall">
+
+samtools pileup -f [reference sequence] [BAM file] >myData.pileup
+</pre>
+<BR>
+Do NOT use the -c parameter. It generates consensus format, which is different from pileup format. The next release
+of VarScan will recognize both formats. Note, to save disk space and file I/O, you can redirect pileup output directly 
+to VarScan with a "pipe" command. For example:
+<BR>
+<pre class="sequenceTextSmall">
+
+samtools pileup -f reference.fasta myData.bam | java -jar VarScan.v2.2.jar pileup2snp
+</pre>
+
+<BR><BR>
+
+<h3><a name="germline-methods">Methods</a></h3>
+
+VarScan parses the pileup input one base at a time, computing the number of bases supporting each observed allele. Only 
+bases meeting the minimum base quality (default: 20) from reads meeting the minimum mapping quality (default: 1) are 
+considered. The coverage (number of qualifying bases) is calculated. If this meets the minimum threshold (default: 20), 
+VarScan examines each allele that was observed, testing to see if it:
+<UL>
+<LI>Was supported by at least the minimum number of supporting reads [--min-reads2]</LI>
+<LI>Meets the minimum allele frequency threshold [--min-var-freq]</LI>
+<LI>Passes a basic strand-bias filter (if <font class="sequenceText">--strand-filter</font> set to 1)</LI>
+<LI>Has a Fisher's Exact Test p-value below the threshold (if <font class="sequenceText">--p-value</font> specified)</LI>
+</UL>
+
+For the <font class="sequenceText">mpileup2snp/pileup2snp</font> and <font class="sequenceText">mpileup2indel/pileup2indel</font> commands, only 
+variants meeting the above criteria are reported. For the <font class="sequenceText">mpileup2cns/pileup2cns</font> command, the 
+most-frequent variant meeting the above criteria is reported, or else the reference base is reported. Variants are 
+reported as heterozygotes unless the variant allele frequency exceeds the <font class="sequenceText">--min-freq-for-hom</font> 
+which defaults to 0.80.
+
+<BR><BR>
+
+<h3><a name="germline-output">Output</a></h3>
+
+VarScan prints results to STDOUT unless an output file is provided (<font class="sequenceText">--output-file</font>). Output 
+files have headers, and all share the same format:
+<TABLE CELLSPACING=0 CELLPADDING=2 BORDER=0>
+<TR align="center"><TD class="boldText">Field</TD><TD class="boldText">Description</TD></TR>
+<TR><TD class="sequenceText">Chrom   </TD><TD class="plainText">Chromosome or reference name</TD></TR>
+<TR><TD class="sequenceText">Position</TD><TD class="plainText">Position from pileup (1-based)</TD></TR>
+<TR><TD class="sequenceText">Ref</TD><TD class="plainText">Reference base at this position</TD></TR>
+<TR><TD class="sequenceText">Cons</TD><TD class="plainText">Consensus genotype or variant called</TD></TR>
+<TR><TD class="sequenceText">Reads1</TD><TD class="plainText">Number of reads supporting reference</TD></TR>
+<TR><TD class="sequenceText">Reads2</TD><TD class="plainText">Number of reads supporting variant</TD></TR>
+<TR><TD class="sequenceText">VarFreq</TD><TD class="plainText">Allele frequency of variant by read count</TD></TR>
+<TR><TD class="sequenceText">Strands1</TD><TD class="plainText">Number of strands on which reference observed (0-2)</TD></TR>
+<TR><TD class="sequenceText">Strands2</TD><TD class="plainText">Number of strands on which variant observed (0-2)</TD></TR>
+<TR><TD class="sequenceText">Qual1</TD><TD class="plainText">Average base quality of reference-supporting bases</TD></TR>
+<TR><TD class="sequenceText">Qual2</TD><TD class="plainText">Average base quality of variant-supporting bases</TD></TR>
+<TR><TD class="sequenceText">Pvalue</TD><TD class="plainText">P-value from Fisher's exact test (0.98 means not calculated)</TD></TR>
+<TR><TD class="sequenceText">MapQual1</TD><TD class="plainText">Average mapping quality of reference-supporting reads</TD></TR>
+<TR><TD class="sequenceText">MapQual2</TD><TD class="plainText">Average mapping quality of variant-supporting reads</TD></TR>
+<TR><TD class="sequenceText">Reads1Plus</TD><TD class="plainText">Number of reference-supporting reads in + orientation</TD></TR>
+<TR><TD class="sequenceText">Reads1Minus &nbsp;</TD><TD class="plainText">Number of reference-supporting reads in - orientation</TD></TR>
+<TR><TD class="sequenceText">Reads2Plus</TD><TD class="plainText">Number of variant-supporting reads in + orientation</TD></TR>
+<TR><TD class="sequenceText">Reads2Minus &nbsp;</TD><TD class="plainText">Number of variant-supporting reads in - orientation</TD></TR>
+<TR><TD class="sequenceText">VarAllele</TD><TD class="plainText">Most prevalent variant allele (even if site not not called variant)</TD></TR>
+</TABLE>
+
+<BR>
+<H4><A NAME="vcf-output"></A>VCF 4.1 Output</H4>
+As of v2.2.8, VarScan will produce VCF 4.1 output files when given the <font class="sequenceText">--output-vcf 1 </font> argument. As of v2.3.1, you can 
+provide a list of sample names to use in the VCF header with the <font class="sequenceText">--vcf-sample-list</font> parameter. This list should be in plain 
+text, one sample per line, in the order that samples appear in the raw mpileup input.
+<BR />
+<BR>
+<H4><A NAME="variant-quality-score"></A>Variant Quality Score (VCF output only)</H4>
+
+When the mpileup2cns, mpileup2snp, or mpileup2indel commands are used with the --output-vcf option, VarScan produces VCF 4.1 output. This includes, for each sample,
+individual variant calling information above as well as a quality score. The quality score is a -10 log10 adjustment of VarScan's p-value from Fisher's Exact Test. On a 
+test mpileup file of 10,000 positions, here were the quality scores for consensus calls plotted by sequence depth (a proxy for calling accuracy). The points are color-coded
+according to the call that VarScan made:<BR />
+<IMG SRC="images/VarScan-QualityScore-by-Depth.png" /><BR />
+As you can see, VarScan's quality score is directly correlated to the depth of quality base pairs at a given position. For positions called wild-type or heterozygous variant, the 
+slope of the line is roughly linear. For homozygous variants, quality scores rise more rapidly than coverage because all bases support a variant, which makes the probability of 
+an incorrect call very unlikely as more coverage is accrued.
+
+<BR>
+<BR />
+<H4><A NAME="indel-positions"></A>A Note on Indel Positions</H4>
+
+VarScan calls consensus bases, SNPs, and indels <font class="boldText">at the position reported by SAMtools</font> in the pileup file. For SNPs and 
+consensus bases, this is the 1-based position of the site or variant. Indels, however, are reported at the base immediately 
+upstream of where they occur. Thus, the first inserted base occurs at (position + 1) and the first deleted base occurs
+at (position + 1). This is why, for deletions, the reference base (e.g. A) may not match the deleted sequence (e.g. */C).
+
+<!-- InstanceEndEditable -->
+</div>
+
+<div style="clear: both;"> </div>
+
+</div>
+
+<div id="footer">
+Copyright © 2009-2013 by <A HREF="http://www.wustl.edu" TITLE="About Dan Koboldt" TARGET="_blank">Washington University in St. Louis</A>. Design by <a href="http://www.free-css-templates.com/" TARGET="_blank">CSS Templates</a>
+</div>
+
+</div>
+
+</body>
+<!-- InstanceEnd --></html>

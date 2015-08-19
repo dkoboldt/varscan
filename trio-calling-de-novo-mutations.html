@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/VarScan.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>VarScan - Trio Calling for de novo Mutations</title>
+<!-- InstanceEndEditable --><meta http-equiv="Content-Language" content="English" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+
+<div id="wrap">
+
+<div id="header">
+<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0>
+<TR><TD WIDTH="100%">
+<h1><a href="index.html" TITLE="VarScan variant detection tool">VarScan</a></h1>
+<h2>variant detection in massively parallel sequencing data</h2></TD>
+<TD valign="bottom"><A HREF="https://varscan.sourceforge.net" TITLE="VarScan Variant Calling Software"><IMG SRC="images/VarScan-FancyLogo.jpg" ALT="VarScan variant detection software" BORDER=0></A></TD>
+</TR>
+</TABLE>
+</div>
+
+<div id="menu">
+<ul>
+<li><a href="index.html" title="VarScan snp and indel caller">Home</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/" TITLE="Variant Discovery Project">Project</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/files/" TITLE="Download Mutation Detection Software">Download</a></li>
+<li><a href="using-varscan.html" TITLE="Variant calling documentation">Manual</a></li>
+<li><a href="support-faq.html" TITLE="Variant detection FAQ">FAQ</a></li>
+<li><a href="doc/index.html" TITLE="VarScan documentation">Documentation</a></li>
+<li><a href="https://sourceforge.net/projects/varscan/forums/forum/1073559" TITLE="VarScan Support">Support Forum</a></li>
+</ul>
+</div>
+
+<div id="content">
+
+<div class="left"> 
+
+<h2>VarScan</h2>
+<ul>
+<li><a href="https://sourceforge.net/apps/mediawiki/varscan" TITLE="VarScan software">About/Wiki</a></li> 
+<li><a href="https://sourceforge.net/projects/varscan/" TITLE="Mutation Discovery Project">Project Page</a></li> 
+<li><a href="using-varscan.html" TITLE="Variant calling documentation">User's Manual</a></li> 
+<li><a href="doc/index.html" TITLE="VarScan Javadoc">JavaDoc</a></li> 
+<li><a href="https://sourceforge.net/projects/varscan/files/" TITLE="Download variant caller software" STYLE="font-weight: bold; color:#00CC00">Download Now</a></li>
+<li><a href="support-faq.html" TITLE="Variant caller support FAQ">Support/FAQ</a></li>
+<li><a style="color: #FF0000" href="https://sourceforge.net/projects/varscan/forums/forum/1073559" TITLE="VarScan Support">Support Forum</a></li>
+</ul>
+
+<h2>Calling Methods</h2>
+<ul>
+<li><a href="germline-calling.html" TITLE="Germline variant calling methods">Germline Variants</a></li> 
+<li><a href="somatic-calling.html" TITLE="Somatic mutation calling methods">Somatic Mutations</a></li> 
+<li><a href="copy-number-calling.html" TITLE="Somatic copy number alteration calling methods">Copy Number Variants</a></li> 
+<li><a href="trio-calling-de-novo-mutations.html" TITLE="de novo mutations from trio calling"><I>de novo</I> Mutations (Trios)</a></li> 
+</ul>
+
+<h2>WashU Analysis Tools</h2>
+<ul>
+<li><a href="http://gmt.genome.wustl.edu" TITLE="Genome Modeling Tools">Genome Modeling Tools</a></li> 
+<li><a href="http://gmt.genome.wustl.edu/breakdancer/1.2/index.html" TITLE="Breakdancer">BreakDancer</a> (SVs)</li> 
+<li><a href="http://gmt.genome.wustl.edu/somatic-sniper/0.7.4/index.html" TITLE="Somatic Sniper">Somatic Sniper</a> (SNVs)</li> 
+<li><a href="http://cmds.sourceforge.net/" TITLE="CMDS">CMDS</a> (Copy Number)</li> 
+</ul>
+
+
+<h2>SAM/BAM Format</h2>
+<ul>
+<li><a href="http://samtools.sourceforge.net/SAM1.pdf" TITLE="SAM Format" TARGET="_blank">SAM Format Spec</a></li> 
+<li><a href="http://samtools.sourceforge.net/pileup.shtml" TITLE="SAMtools Pileup Format" TARGET="_blank">Pileup Format</a></li> 
+<li><a href="http://samtools.sourceforge.net" TITLE="SAMtools" TARGET="_blank">SAMtools</a></li> 
+<li><a href="http://picard.sourceforge.net/index.shtml" TITLE="Picard Tools" TARGET="_blank">Picard</a></li> 
+</ul>
+
+<h2>Short Read Aligners</h2>
+<ul>
+<li><a href="http://bowtie-bio.sourceforge.net" title="bowtie aligner" TARGET="_blank">Bowtie</a></li> 
+<li><a href="http://bio-bwa.sourceforge.net" title="bwa aligner" TARGET="_blank">BWA</a></li> 
+<li><a href="http://maq.sourceforge.net" title="maq aligner" TARGET="_blank">Maq</a></li> 
+<li><a href="http://www.novocraft.com" title="novocraft aligner" TARGET="_blank">Novoalign</a></li> 
+<li><a href="http://www.sanger.ac.uk/resources/software/ssaha2" title="ssaha aligner" TARGET="_blank">SSAHA2</a></li> 
+</ul>
+
+
+</div>
+
+
+<div class="right"> 
+<!-- InstanceBeginEditable name="MainBody" -->
+
+<h2>Trio Calling for <I>de novo</I> Mutations</h2>
+
+Next-generation sequencing of family pedigrees offers a powerful approach for the identification of transmitted alleles and/or de novo mutations that may confer susceptibility to disease. The "trio" subcommand of VarScan leverages the family relationship to improve variant calling accuracy, identify apparent Mendelian Inheritance Errors (MIEs), and detect high-confidence de novo mutations.
+<BR /><BR />
+Based on recent WGS studies in families, we think that the <I>de novo mutation</I> rate in humans is approximately 1.1 × 10-8 per haploid genome (1000 Genomes Project Consortium, 2010; Roach et al., 2010). By this estimate, an individual's diploid genome harbors, on average, around 64 de novo mutations among 3.2 billion base pairs. In the consensus coding sequence (CCDS) (~34 mbp), we expect less than one de novo coding mutation per diploid individual.
+<BR /><BR />
+Because of this extreme rareness, de novo mutations should be called conservatively. To address this, VarScan re-evaluates apparent de novo mutations in each parent using relaxed parameters and re-classifies those with some evidence in one or both parents as a germline variant. In a similar manner, VarScan attempts to reconcile apparent Mendelian Inheritance Errors. The output of the trio subcommand is a single VCF in which all variants are classified as germline (transmitted or untransmitted), de novo, or MIE.
+<BR /><BR />
+<H3>Input</H3>
+This command requires "mpileup" for the father, mother, and child (in that order). Generating it will require:
+<UL>
+<LI>The SAMtools package</LI>
+<LI>The reference sequence in FASTA format</LI>
+<LI>BAM files for the father, mother, and child</LI>
+</UL>
+<BR />
+<H3>Trio Calling Syntax</H3>
+Trio calling with VarScan 2 is a two-step process.
+<H4>1. Generate a three-sample mpileup</H4>
+Here's an example command:<BR />
+<pre>
+samtools mpileup -B -q 1 -f ref.fasta dad.bam mom.bam child.bam >trio.mpileup
+</pre>
+<br />
+<H4>2. Run VarScan trio</H4>
+Here's the syntax for the VarScan subcommand:
+<pre>
+java -jar VarScan.jar trio trio.mpileup trio.mpileup.output \
+      --min-coverage 10 --min-var-freq 0.20 --p-value 0.05 \ 
+      -adj-var-freq 0.05 -adj-p-value 0.15
+</pre>
+<br />
+<H3>Trio Calling Algorithm</H3>
+VarScan first calls variants across all three samples the same fashion as it does for mpileup2snp using the default (or user-provided) --min-var-freq and --p-value settings. Next, it identifies any variants with apparent Mendelian Inheritance Errors (i.e. present in child but absent from either parent). In these instances, it re-calls the samples that should have
+a variant but were called wild type with adjusted settings (--adj-var-freq and --adj-p-value), in an attempt to correct the call. This often corrects the MIE, in which case the corrected genotypes are reported. If not, the site will be flagged as mendelError (in the FILTER field) and/or DENOVO (in the INFO field).
+<BR /><BR />
+<H3>Output</H3>
+The above command will produce two VCF output files: one for SNPs (trio.mpileup.output.snp.vcf) and one for indels (trio.mpileup.output.indel.vcf). Relevant INFO fields include:
+<UL>
+<LI>FILTER - mendelError if MIE, otherwise PASS</LI>
+<LI>STATUS - 1=untransmitted, 2=transmitted, 3=denovo, 4=MIE</LI>
+<LI>DENOVO - if present, indicates a high-confidence de novo mutation call</LI>
+</UL>
+<BR />
+<H3>Downstream Filtering/Interpreation</H3>
+Even the stringent methodology in VarScan trio will likely call candidate de novo mutations that are not real. These should be filtered for false positives (using the child BAM) the same way that somatic mutations are. They should also be filtered to aggressively remove known germline variants (i.e. by removing common dbSNPs). A recent whole-genome sequencing study in Dutch families developed a random forest classifier for distinguishing true <I>de novo</I> mutations, and found that the most important factors were related to sequencing depth and read counts. In other words, the ideal <I>de novo</I> mutation call will have high depth (>20x) in all three samples, with good support in the child (40-50% of reads for autosomal calls) and no variant-supporting reads in either parent.
+
+<!-- InstanceEndEditable -->
+</div>
+
+<div style="clear: both;"> </div>
+
+</div>
+
+<div id="footer">
+Copyright © 2009-2013 by <A HREF="http://www.wustl.edu" TITLE="About Dan Koboldt" TARGET="_blank">Washington University in St. Louis</A>. Design by <a href="http://www.free-css-templates.com/" TARGET="_blank">CSS Templates</a>
+</div>
+
+</div>
+
+</body>
+<!-- InstanceEnd --></html>

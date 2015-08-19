@@ -1,0 +1,5 @@
+http://varscan.sourceforge.net
+http://varscan.sourceforge.net/copy-number-calling.html
+http://varscan.sourceforge.net/germline-calling.html
+http://varscan.sourceforge.net/somatic-calling.html
+http://varscan.sourceforge.net/support-faq.html
