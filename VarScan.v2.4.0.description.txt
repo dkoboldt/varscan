@@ -1,0 +1,84 @@
+RELEASE NOTES FOR VARSCAN V2.4.0
+
+20-Aug-2015
+
+VarScan v2.4.0 is the first release to VarScan's new home at GitHub, http://dkoboldt.github.io/varscan/
+VarScan v2.3.9 and prior releases will persist on SourceForge, as will the support forums and other resources. 
+
+LICENSE
+VarScan 2 is free for non-commercial use by academic, government, and non-profit/not-for-profit institutions. 
+A commercial version of the software is available, and licensed through the Office of Technology Management at 
+Washington University School of Medicine. For more information, please contact:
+
+Paul Carter, Business Development Director
+paulcarter@wustl.edu
++1 314-362-5426
+
+VERSION 2.4.0 CHANGES
+The major change to v2.4.0 is the implementation of a SmartFileReader class, which addresses a known bug
+in Java runtime that could cause VarScan to hang if given an empty input file. Hat tip to Bina Technologies
+for contributing this code.
+
+Minor issues addressed in the current release include:
+1.) A correction in the way normal_reads2 values are counted when the mutation allele is not observed. Prior
+to this fix, a non-reference base would be counted as a variant allele even if it didn't match the actual mutation
+allele called in the tumor. Now, only observations of the tumor variant allele will be counted and go into the FET.
+
+2.) Improved parameter-handling logic for two flags (--validation and --strand-filter), which previously were
+sometimes considered "turned on" if the user provided them, even if the value provided was a zero.
+
+3.) Catching the rare ArrayIndexOutOfBoundsException errors thrown in the copynumber and trio functions when 
+VarScan encountered incomplete mpileup columns. 
+
+4.) Addressed a typo-bug for the tumor-purity parameter which only had an effect if the user provided percentage 
+values (e.g. 15) rather than fractions (e.g. 0.15).
+
+
+
+REMINDER: PLEASE USE THE FALSE POSITIVE FILTER
+The scientific basis of this filter is described in the VarScan 2 publication. It will improve
+the precision of variant and mutation calling by removing artifacts associated with short-read alignment.
+-For somatic mutations, generate bam-readcounts with the Tumor BAM. For LOH and Germline, generate readcounts with the Normal BAM
+-For de novo mutations (trio calling), generate readcounts with the child BAM.
+The filter requires the bam-readcount utility: https://github.com/genome/bam-readcount
+
+USAGE: java -jar VarScan.jar fpfilter [variant file] [readcount file] OPTIONS
+	variant file - A file of SNPs or indels in VarScan-native or VCF format
+	readcount file - The output file from bam-readcount for those positions
+	***For detailed filtering instructions, please visit http://varscan.sourceforge.net***
+
+	OPTIONS:
+	--output-file		Optional output file for filter-pass variants
+	--filtered-file		Optional output file for filter-fail variants
+	--keep-failures		If set to 1, include failures in the output file
+
+	--min-var-count		Minimum number of variant-supporting reads [4]
+	--min-var-freq		Minimum variant allele frequency [0.05]
+	--min-var-readpos		Minimum average read position of var-supporting reads [0.10]
+	--min-var-dist3		Minimum average relative distance to effective 3' end [0.10]
+	--min-strandedness	Minimum fraction of variant reads from each strand [0.01]
+	--min-strand-reads	Minimum allele depth required to perform the strand tests [5]
+	--min-ref-basequal		Minimum average base quality for ref allele [30]
+	--min-var-basequal		Minimum average base quality for var allele [30]
+	--max-rl-diff		Maximum average relative read length difference (ref - var) [0.25]
+	--max-var-mmqs		Maximum mismatch quality sum of variant-supporting reads [100]
+	--max-mmqs-diff		Maximum average mismatch quality sum (var - ref) [50]
+	--min-ref-mapqual		Minimum average mapping quality for ref allele [30]
+	--min-var-mapqual		Minimum average mapping quality for var allele [30]
+	--max-mapqual-diff	Maximum average mapping quality (ref - var) [50]
+	
+
+CITING VARSCAN
+If you use VarScan, please note the version number and cite this publication along with the 
+version-appropriate URL:
+
+Koboldt DC, Zhang Q, Larson DE, Shen D, McLellan MD, Lin L, Miller CA, Mardis ER, Ding L, Wilson RK. 
+VarScan 2: somatic mutation and copy number alteration discovery in cancer by exome sequencing. 
+Genome Res. 2012 Mar;22(3):568-76. doi: 10.1101/gr.129684.111. 
+
+https://github.com/dkoboldt/varscan (v2.4.0 and beyond)
+or
+http://varscan.sourceforge.net (v2.3.9 and before)
+
+
+
