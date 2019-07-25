@@ -7,14 +7,7 @@ VarScan v2.4.0 was the first release to VarScan's new home at GitHub, http://dko
 VarScan v2.3.9 and prior releases will persist on SourceForge, as will the support forums and other resources. 
 
 LICENSE
-VarScan 2 is free for non-commercial use by academic, government, and non-profit/not-for-profit institutions. 
-A commercial version of the software is available, and licensed through the Office of Technology Management at 
-Washington University School of Medicine. For more information, please contact:
-
-Paul Carter, Business Development Director
-paulcarter@wustl.edu
-+1 314-362-5426
-https://otm.wustl.edu/for-industry/tools/
+VarScan 2 is free for non-commercial use by academic, government, and non-profit/not-for-profit institutions. A commercial version of the software is available, and licensed through the Office of Technology Management at Washington University School of Medicine. For more information please visit their website at https://otm.wustl.edu/for-industry/tools/ or contact otm@wustl.edu. 
 
 VERSION 2.4.3 CHANGES
 The principal change to this version changes how normal read counts are compiled during somatic mutation calling. 
