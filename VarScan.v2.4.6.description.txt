@@ -1,0 +1,114 @@
+RELEASE NOTES FOR VARSCAN V2.4.6
+
+28-Mar-2023
+
+VarScan v2.4.6 is the current release
+VarScan v2.4.0 was the first release to VarScan's new home at GitHub, http://dkoboldt.github.io/varscan/
+VarScan v2.3.9 and prior releases will persist on SourceForge, as will the support forums and other resources. 
+
+LICENSE
+VarScan 2 is free for non-commercial use by academic, government, and non-profit/not-for-profit institutions.
+A commercial version of the software is available, and licensed through the Office of Technology Management at
+Washington University School of Medicine. For more information please visit their website at: 
+https://otm.wustl.edu/for-industry/tools/
+or contact them by e-mail: 
+otm@wustl.edu
+
+VERSION 2.4.6 CHANGES
+This release includes important fixes/improvements to the mpileup2somatic multi-tumor-sample calling functionality introduced in v2.4.5.
+-The VCF output format has changed, specifically the INFO, FORMAT, and genotype fields
+
+VarScan processSomatic functionality is compatible with mpileup2somatic VCF output, but provides only basic functionality. 
+-It will properly output variants according to overall somatic status
+
+It also contains a bug fix for the parsing of very long (>9999 bp) indels from mpileup input.
+
+NOTE: mpileup2somatic is a new feature, so please send feedback if you use it: daniel.koboldt (at) nationwidechildrens [dot] org.
+
+
+REMINDER: PLEASE USE THE FALSE POSITIVE FILTER (fpfilter)
+We recommend processing initial VarScan output with processSomatic, and then applying fpfilter to high-confidence Somatic calls.
+Although the "somaticFilter" function will continue to be available, we recommend using the above approach instead.
+
+The scientific basis of this filter is described in the VarScan 2 publication. It will improve
+the precision of variant and mutation calling by removing artifacts associated with short-read alignment.
+-For somatic mutations, generate bam-readcounts with the Tumor BAM. For LOH and Germline, generate readcounts with the Normal BAM
+-For de novo mutations (trio calling), generate readcounts with the child BAM.
+The filter requires the bam-readcount utility: https://github.com/genome/bam-readcount
+
+USAGE: java -jar VarScan.jar fpfilter [variant file] [readcount file] OPTIONS
+	variant file - A file of SNPs or indels in VarScan-native or VCF format
+	readcount file - The output file from bam-readcount for those positions
+	***For detailed filtering instructions, please visit http://varscan.sourceforge.net***
+
+	OPTIONS:
+	--output-file		Optional output file for filter-pass variants
+	--filtered-file		Optional output file for filter-fail variants
+	--dream3-settings	If set to 1, optimizes filter parameters based on TCGA-ICGC DREAM-3 SNV Challenge results
+	--keep-failures		If set to 1, includes failures in the output file
+
+	FILTERING PARAMETERS:
+	--min-var-count		Minimum number of variant-supporting reads [4]
+	--min-var-count-lc	Minimum number of variant-supporting reads when depth below somaticPdepth [2]
+	--min-var-freq		Minimum variant allele frequency [0.05]
+	--max-somatic-p		Maximum somatic p-value [1.0]
+	--max-somatic-p-depth	Depth required to test max somatic p-value [10]
+	--min-ref-readpos	Minimum average read position of ref-supporting reads [0.1]
+	--min-var-readpos	Minimum average read position of var-supporting reads [0.1]
+	--min-ref-dist3		Minimum average distance to effective 3' end (ref) [0.1]
+	--min-var-dist3		Minimum average distance to effective 3' end (var) [0.1]
+	--min-strandedness	Minimum fraction of variant reads from each strand [0.01]
+	--min-strand-reads	Minimum allele depth required to perform the strand tests [5]
+	--min-ref-basequal	Minimum average base quality for ref allele [15]
+	--min-var-basequal	Minimum average base quality for var allele [15]
+	--min-ref-avgrl		Minimum average trimmed read length for ref allele [90]
+	--min-var-avgrl		Minimum average trimmed read length for var allele [90]
+	--max-rl-diff		Maximum average relative read length difference (ref - var) [0.25]
+	--max-ref-mmqs		Maximum mismatch quality sum of reference-supporting reads [100]
+	--max-var-mmqs		Maximum mismatch quality sum of variant-supporting reads [100]
+	--max-mmqs-diff		Maximum average mismatch quality sum (var - ref) [50]
+	--min-ref-mapqual	Minimum average mapping quality for ref allele [15]
+	--min-var-mapqual	Minimum average mapping quality for var allele [15]
+	--max-mapqual-diff	Maximum average mapping quality (ref - var) [50]
+
+
+DREAM-3 SETTINGS FOR FPFILTER
+Please note the --dream3-settings parameter for fpfilter, which (if set to 1) will optimize the 
+false positive filter settings based on the fine-tuning we did for the TCGA-ICGC DREAM-3 
+SNV Challenge. See the "in silico 3" dataset described here:
+https://www.synapse.org/#!Synapse:syn312572/wiki/62018
+This dataset modeled 100% tumor purity, but three subclones at 50%, 33%, and 20% variant allele frequency.
+Optimal VarScan settings were established as follows:
+	For SAMtools:
+		mpileup -B (disables BAQ)
+
+	For VarScan somatic:
+		--min-coverage 3 --min-var-freq 0.08 --p-value 0.10 --somatic-p-value 0.05 --strand-filter 0
+
+	For VarScan fpfilter:
+		--min-var-count = 3
+		--min-var-count-lc = 1
+		--min-strandedness = 0
+		--min-var-basequal = 30
+		--min-ref-readpos = 0.20
+		--min-ref-dist3 = 0.20
+		--min-var-readpos = 0.15
+		--min-var-dist3 = 0.15
+		--max-rl-diff = 0.05
+		--max-mapqual-diff = 10
+		--min-ref-mapqual = 20
+		--min-var-mapqual = 30
+		--max-var-mmqs = 100
+		--max-ref-mmqs = 50
+
+CITING VARSCAN
+If you use VarScan, please note the version number and cite this publication along with the 
+version-appropriate URL:
+
+Koboldt DC, Zhang Q, Larson DE, Shen D, McLellan MD, Lin L, Miller CA, Mardis ER, Ding L, Wilson RK. 
+VarScan 2: somatic mutation and copy number alteration discovery in cancer by exome sequencing. 
+Genome Res. 2012 Mar;22(3):568-76. doi: 10.1101/gr.129684.111. 
+
+https://github.com/dkoboldt/varscan (v2.4.0 and beyond)
+or
+http://varscan.sourceforge.net (v2.3.9 and before)
